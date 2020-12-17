@@ -1,12 +1,12 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace FootballStats.Models
+namespace FootballStats.Models.Teams
 {
     public class Team
     {
         [JsonPropertyName("team_id")]
         public int TeamId { get; set; }
-        
+
         public string Name { get; set; }
 
         public string Code { get; set; }

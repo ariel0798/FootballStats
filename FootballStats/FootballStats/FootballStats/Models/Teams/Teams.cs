@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
-namespace FootballStats.Models
-{
+namespace FootballStats.Models.Teams
+{ 
     public class Teams
     {
         public Api Api { get; set; }

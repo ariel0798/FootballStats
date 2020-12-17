@@ -1,4 +1,4 @@
-﻿using FootballStats.Models;
+﻿using FootballStats.Models.Teams;
 using FootballStats.Services.Interfaces;
 using Prism.Commands;
 using Prism.Services;
