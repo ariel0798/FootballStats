@@ -5,7 +5,8 @@ namespace FootballStats.Models.Fixtures
 {
     public class Fixture
     {
-        [JsonPropertyName("fixture_id")]
+        [JsonPropertyName("fixture_id")] 
+
         public int FixtureId { get; set; }
 
         [JsonPropertyName("league_id")]
