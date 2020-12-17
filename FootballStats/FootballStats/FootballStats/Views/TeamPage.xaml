@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FootballStats.Views.TeamPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid VerticalOptions="Start"
+              HorizontalOptions="FillAndExpand"
+              Padding="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Text="Name:"  Grid.Column="0" Grid.Row="0"/>
+                <Label Text="{Binding Team.Name}"  Grid.Column="1" Grid.Row="0"/>
+
+                <Label Text="Code:"  Grid.Column="0" Grid.Row="1"/>
+                <Label Text="{Binding Team.Code}"  Grid.Column="1" Grid.Row="1"/>
+
+                <Label Text="Logo:"  Grid.Column="0" Grid.Row="2"/>
+                <Image Source="{Binding Team.Logo}"  Grid.Column="1" Grid.Row="2"/>
+
+                <Label Text="Country:"  Grid.Column="0" Grid.Row="3"/>
+                <Label Text="{Binding Team.Country}"  Grid.Column="1" Grid.Row="3"/>
+
+                <Label Text="Founded:"  Grid.Column="0" Grid.Row="4"/>
+                <Label Text="{Binding Team.Founded}"  Grid.Column="1" Grid.Row="4"/>
+
+                <Label Text="Venue name:"  Grid.Column="0" Grid.Row="5"/>
+                <Label Text="{Binding Team.VenueName}"  Grid.Column="1" Grid.Row="5"/>
+
+                <Label Text="Venue surface:"  Grid.Column="0" Grid.Row="6"/>
+                <Label Text="{Binding Team.VenueSurface}"  Grid.Column="1" Grid.Row="6"/>
+
+                <Label Text="Venue address:"  Grid.Column="0" Grid.Row="7"/>
+                <Label Text="{Binding Team.VenueAddress}"  Grid.Column="1" Grid.Row="7"/>
+
+                <Label Text="Venue city:"  Grid.Column="0" Grid.Row="8"/>
+                <Label Text="{Binding Team.VenueCity}"  Grid.Column="1" Grid.Row="8"/>
+
+                <Label Text="Venue capacity:"  Grid.Column="0" Grid.Row="9"/>
+                <Label Text="{Binding Team.VenueCapacity}"  Grid.Column="1" Grid.Row="9"/>
+
+
+
+                <Button Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="1" Text="Get data" Command="{Binding GetTeamDataCommand}"  />
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

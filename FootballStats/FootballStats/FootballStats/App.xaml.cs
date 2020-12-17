@@ -1,4 +1,6 @@
-﻿using Prism;
+﻿using FootballStats.ViewModels;
+using FootballStats.Views;
+using Prism;
 using Prism.Ioc;
 using Prism.Unity;
 using System;
@@ -31,11 +33,12 @@ namespace FootballStats
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<MainPage>(NavigationConstants.MainPage);
+            containerRegistry.RegisterForNavigation<TeamPage,TeamViewModel>(NavigationConstants.TeamPage);
         }
 
         protected override async void OnInitialized()
         {
-            await NavigationService.NavigateAsync(NavigationConstants.MainPage);
+            await NavigationService.NavigateAsync(NavigationConstants.TeamPage);
         }
     }
 }
