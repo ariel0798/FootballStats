@@ -5,6 +5,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace FootballStats
 {
     public partial class App : PrismApplication
@@ -29,12 +30,12 @@ namespace FootballStats
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<MainPage>(NavigationConstants.MainPage);
         }
 
         protected override async void OnInitialized()
         {
-            await NavigationService.NavigateAsync("MainPage");
+            await NavigationService.NavigateAsync(NavigationConstants.MainPage);
         }
     }
 }
