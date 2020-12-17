@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="Prism.Unity.Forms" Version="8.0.0.1909" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.3.1" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.1791-pre5" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
@@ -20,6 +21,5 @@
     <Folder Include="Models\" />
     <Folder Include="Services\" />
     <Folder Include="Views\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 </Project>
