@@ -20,6 +20,5 @@ namespace FootballStats.Services.Interfaces
 
         [Get("fixtures/live")]
         Task<Fixtures> GetFixturesLive();
-
     }
 }
