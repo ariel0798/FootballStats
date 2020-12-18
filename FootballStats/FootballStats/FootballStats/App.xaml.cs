@@ -34,11 +34,12 @@ namespace FootballStats
         {
             containerRegistry.RegisterForNavigation<MainPage>(NavigationConstants.MainPage);
             containerRegistry.RegisterForNavigation<TeamPage,TeamViewModel>(NavigationConstants.TeamPage);
+            containerRegistry.RegisterForNavigation<TrophyPage, TrophyViewModel>(NavigationConstants.TrophyPage);
         }
 
         protected override async void OnInitialized()
         {
-            await NavigationService.NavigateAsync(NavigationConstants.TeamPage);
+            await NavigationService.NavigateAsync(NavigationConstants.TrophyPage);
         }
     }
 }
