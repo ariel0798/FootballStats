@@ -3,6 +3,7 @@ using FootballStats.Models.Players;
 using FootballStats.Models.Teams;
 using Refit;
 using System.Threading.Tasks;
+using FootballStats.Models.Leagues;
 
 namespace FootballStats.Services.Interfaces
 {
@@ -20,5 +21,8 @@ namespace FootballStats.Services.Interfaces
 
         [Get("fixtures/live")]
         Task<Fixtures> GetFixturesLive();
+
+        [Get("leagues")]
+        Task<Leagues> GetLeagues();
     }
 }
