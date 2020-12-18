@@ -33,7 +33,7 @@ namespace FootballStats.ViewModels
 
                 if (trophy != null)
                 {
-                    this.Trophy = trophy.api.Trophies[1];
+                    this.Trophy = trophy.Api.Trophies[1];
                 }
                 else
                 {

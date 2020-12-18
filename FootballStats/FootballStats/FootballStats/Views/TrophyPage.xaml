@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FootballStats.Views.TrophyPage">
+             x:Class="FootballStats.Views.TrophyPage"
+             Title="Trophy">
     <ContentPage.Content>
         <ScrollView>
-            <Grid>
+            <Grid VerticalOptions="Center"
+              HorizontalOptions="FillAndExpand"
+              Padding="20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>

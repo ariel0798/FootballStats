@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace FootballStats.Models.Leagues
 {
@@ -10,7 +7,9 @@ namespace FootballStats.Models.Leagues
         public bool Events { get; set; }
         public bool Lineups { get; set; }
         public bool Statistics { get; set; }
-        public bool Players_statistics { get; set; }
+        [JsonPropertyName("players_statistics")]
+
+        public bool PlayersStatistics { get; set; }
     }
 
     public class Coverage

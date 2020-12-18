@@ -4,7 +4,7 @@ namespace FootballStats.Models.Trophies
 {
     public class Trophies
     {
-        public Api api { get; set; }
+        public Api Api { get; set; }
     }
 
     public class Api

@@ -32,15 +32,15 @@ namespace FootballStats
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<MainPage>(NavigationConstants.MainPage);
             containerRegistry.RegisterForNavigation<TeamPage,TeamViewModel>(NavigationConstants.TeamPage);
             containerRegistry.RegisterForNavigation<TrophyPage, TrophyViewModel>(NavigationConstants.TrophyPage);
             containerRegistry.RegisterForNavigation<LeaguePage, LeagueViewModel>(NavigationConstants.LeaguePage);
+            containerRegistry.RegisterForNavigation<HomePage>(NavigationConstants.HomePage);
         }
 
         protected override async void OnInitialized()
         {
-            await NavigationService.NavigateAsync(NavigationConstants.LeaguePage);
+            await NavigationService.NavigateAsync(NavigationConstants.HomePage);
         }
     }
 }
