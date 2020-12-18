@@ -12,7 +12,7 @@ namespace FootballStats.Models.Leagues
     public class Api 
     {
 
-        public int results { get; set; }
-        public List<League> leagues { get; set; }
+        public int Results { get; set; }
+        public List<League> Leagues { get; set; }
     }
 }

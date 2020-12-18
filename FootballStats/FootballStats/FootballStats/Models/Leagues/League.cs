@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace FootballStats.Models.Leagues
 {
@@ -23,19 +24,24 @@ namespace FootballStats.Models.Leagues
     }
     public class League
     {
-
-        public int League_id { get; set; }
+        [JsonPropertyName("league_id")]
+        public int LeagueId { get; set; }
+      
         public string Name { get; set; }
         public string Type { get; set; }
         public string Country { get; set; }
-        public object Country_code { get; set; }
+        [JsonPropertyName("country_code")]
+        public object CountryCode { get; set; }
         public int Season { get; set; }
-        public string Season_start { get; set; }
-        public string Season_end { get; set; }
+        [JsonPropertyName("season_start")]
+        public string SeasonStart { get; set; }
+        [JsonPropertyName("season_end")]
+        public string SeasonEnd { get; set; }
         public string Logo { get; set; }
         public object Flag { get; set; }
         public int Standings { get; set; }
-        public int Is_current { get; set; }
+        [JsonPropertyName(" Is_current ")]
+        public int IsCurrent { get; set; }
         public Coverage Coverage { get; set; }
     }
   

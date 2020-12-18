@@ -22,5 +22,12 @@ namespace FootballStats.Services.Interfaces
 
         [Get("/fixtures/live")]
         Task<Fixtures> GetFixturesLive();
+
+        [Get("/trophies/player/{playerId}")]
+        Task<Trophies> GetTrophiesById(int playerId);
+
+        [Get("/leagues/team/{teamId}")]
+        Task<Leagues> GetLeaguesById(int teamId);
+
     }
 }
