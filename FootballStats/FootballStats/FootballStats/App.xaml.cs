@@ -40,7 +40,7 @@ namespace FootballStats
 
         protected override async void OnInitialized()
         {
-            await NavigationService.NavigateAsync(NavigationConstants.HomePage);
+            await NavigationService.NavigateAsync(NavigationConstants.TeamPage);
         }
     }
 }
