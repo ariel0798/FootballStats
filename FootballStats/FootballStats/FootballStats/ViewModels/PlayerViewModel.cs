@@ -1,8 +1,4 @@
 ﻿using FootballStats.Services.Interfaces;
-using Prism.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FootballStats.ViewModels
 {

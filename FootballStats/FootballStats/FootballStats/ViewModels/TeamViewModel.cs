@@ -1,18 +1,15 @@
 ﻿using Acr.UserDialogs;
 using FootballStats.Models.Teams;
-using FootballStats.Services;
 using FootballStats.Services.Interfaces;
 using Newtonsoft.Json;
 using Prism.Commands;
-using Prism.Services;
 using System.Threading.Tasks;
 
 namespace FootballStats.ViewModels
 {
     public class TeamViewModel : BaseViewModel
     {
-        readonly IUserDialogs PageDialogs = UserDialogs.Instance;
-        readonly IApiCallerService apiCallerService;
+        
         readonly IApiManager apiManager;
         public TeamViewModel( IApiManager apiManager)
             :base(apiManager)

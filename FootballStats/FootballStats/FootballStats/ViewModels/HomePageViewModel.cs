@@ -1,6 +1,4 @@
-﻿
-
-using FootballStats.Services.Interfaces;
+﻿using FootballStats.Services.Interfaces;
 
 namespace FootballStats.ViewModels
 {

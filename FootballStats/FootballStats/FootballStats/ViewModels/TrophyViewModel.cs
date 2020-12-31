@@ -2,7 +2,6 @@
 using FootballStats.Services.Interfaces;
 using Newtonsoft.Json;
 using Prism.Commands;
-using Prism.Services;
 using System.Threading.Tasks;
 namespace FootballStats.ViewModels
 {

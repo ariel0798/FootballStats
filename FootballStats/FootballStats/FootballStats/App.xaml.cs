@@ -38,7 +38,6 @@ namespace FootballStats
 
 
             containerRegistry.RegisterInstance<IApiManager>(new ApiManager(new ApiService<IFootballApi>(Config.FootballApiUrl)));
-            containerRegistry.RegisterInstance<IApiCallerService>(new ApiCallerService());
         }
 
         protected override async void OnInitialized()

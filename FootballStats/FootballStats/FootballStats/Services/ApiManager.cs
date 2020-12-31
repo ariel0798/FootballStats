@@ -22,7 +22,6 @@ namespace FootballStats.Services
         public bool IsConnected { get; set; }
         public bool IsReachable { get; set; }
         readonly Dictionary<int, CancellationTokenSource> runningTasks = new Dictionary<int, CancellationTokenSource>();
-        readonly Dictionary<string, Task<HttpResponseMessage>> taskContainer = new Dictionary<string, Task<HttpResponseMessage>>();
 
         public ApiManager(IApiService<IFootballApi> footballApi)
         {
