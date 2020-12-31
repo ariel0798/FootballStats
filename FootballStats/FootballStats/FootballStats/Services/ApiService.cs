@@ -9,7 +9,7 @@ namespace FootballStats.Services
 {
     public class ApiService<T>: IApiService<T>
     {
-        Func<HttpMessageHandler, T> createClient;
+        readonly Func<HttpMessageHandler, T> createClient;
 
         public ApiService(string apiBaseAddress)
         {

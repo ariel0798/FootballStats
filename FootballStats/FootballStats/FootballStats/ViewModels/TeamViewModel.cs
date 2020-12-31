@@ -1,56 +1,33 @@
-﻿using FootballStats.Models.Teams;
+﻿using Acr.UserDialogs;
+using FootballStats.Models.Teams;
+using FootballStats.Services;
 using FootballStats.Services.Interfaces;
 using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Services;
-using Refit;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 
 namespace FootballStats.ViewModels
 {
     public class TeamViewModel : BaseViewModel
     {
-        readonly IPageDialogService pageDialogService;
-
-        public TeamViewModel(IPageDialogService pageDialogService)
+        readonly IUserDialogs PageDialogs = UserDialogs.Instance;
+        readonly IApiCallerService apiCallerService;
+        readonly IApiManager apiManager;
+        public TeamViewModel( IApiManager apiManager)
+            :base(apiManager)
         {
-            this.pageDialogService = pageDialogService;
-        }
+            this.apiManager = apiManager;
+    }
 
         public Team Team { get; set; }
-        //await RunSafe(GetData()));
-        public DelegateCommand GetTeamDataCommand => new DelegateCommand(async () =>
-        
-        {
-            var current = Connectivity.NetworkAccess;
+        //
+        public DelegateCommand GetTeamDataCommand => new DelegateCommand(async () => await RunSafe(GetData()));
 
-            if (current == NetworkAccess.Internet)
-            {
-                var serviceApi = RestService.For<IFootballApi>(Config.FootballApiUrl);
 
-                var teams = await serviceApi.GetTeamById(33);
-
-                if (teams != null)
-                {
-                    var stringJson = teams.Content.ReadAsStringAsync().ToString();
-                    var teamObj = JsonConvert.DeserializeObject<Teams>(stringJson);
-                    this.Team = teamObj.Api.Teams[0];
-                }
-                else
-                {
-                    await pageDialogService.DisplayAlertAsync("Error", "An error occurred connecting to the API", "Ok");
-                }
-            }
-            else
-            {
-                await pageDialogService.DisplayAlertAsync("No Internet", "Please check your internet connection", "Ok");
-            }
-        });
-        /*
         async Task GetData()
         {
-            var footballResponse = await ApiManager.GetTeamById(33);
+            var footballResponse = await apiManager.GetTeamById(33);
 
             if (footballResponse.IsSuccessStatusCode)
             {
@@ -62,6 +39,6 @@ namespace FootballStats.ViewModels
             {
                 await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
             }
-        }*/
+        }
     }
 }

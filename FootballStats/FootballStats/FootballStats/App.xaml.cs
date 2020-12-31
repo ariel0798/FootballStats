@@ -1,12 +1,11 @@
-﻿using FootballStats.ViewModels;
+﻿using FootballStats.Services;
+using FootballStats.Services.Interfaces;
+using FootballStats.ViewModels;
 using FootballStats.Views;
 using Prism;
 using Prism.Ioc;
 using Prism.Unity;
 using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
 
 namespace FootballStats
 {
@@ -35,12 +34,16 @@ namespace FootballStats
             containerRegistry.RegisterForNavigation<TeamPage,TeamViewModel>(NavigationConstants.TeamPage);
             containerRegistry.RegisterForNavigation<TrophyPage, TrophyViewModel>(NavigationConstants.TrophyPage);
             containerRegistry.RegisterForNavigation<LeaguePage, LeagueViewModel>(NavigationConstants.LeaguePage);
-            containerRegistry.RegisterForNavigation<HomePage>(NavigationConstants.HomePage);
+            containerRegistry.RegisterForNavigation<HomePage,HomePageViewModel>(NavigationConstants.HomePage);
+
+
+            containerRegistry.RegisterInstance<IApiManager>(new ApiManager(new ApiService<IFootballApi>(Config.FootballApiUrl)));
+            containerRegistry.RegisterInstance<IApiCallerService>(new ApiCallerService());
         }
 
         protected override async void OnInitialized()
         {
-            await NavigationService.NavigateAsync(NavigationConstants.TeamPage);
+            await NavigationService.NavigateAsync(new Uri($"/{NavigationConstants.HomePage}"));
         }
     }
 }

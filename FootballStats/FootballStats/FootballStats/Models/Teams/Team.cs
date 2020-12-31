@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace FootballStats.Models.Teams
 {
@@ -15,24 +16,24 @@ namespace FootballStats.Models.Teams
 
         public string Country { get; set; }
 
-        [JsonPropertyName("is_national")]
+        [JsonProperty(propertyName:"is_national")]
         public bool IsNational { get; set; }
 
         public int Founded { get; set; }
 
-        [JsonPropertyName("venue_name")]
+        [JsonProperty(propertyName: "venue_name")]
         public string VenueName { get; set; }
 
-        [JsonPropertyName("venue_surface")]
+        [JsonProperty(propertyName: "venue_surface")]
         public string VenueSurface { get; set; }
 
-        [JsonPropertyName("venue_address")]
+        [JsonProperty(propertyName: "venue_address")]
         public string VenueAddress { get; set; }
 
-        [JsonPropertyName("venue_city")]
+        [JsonProperty(propertyName: "venue_city")]
         public string VenueCity { get; set; }
 
-        [JsonPropertyName("venue_capacity")]
+        [JsonProperty(propertyName: "venue_capacity")]
         public int VenueCapacity { get; set; }
     }
 }

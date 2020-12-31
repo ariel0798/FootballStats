@@ -2721,9 +2721,9 @@ namespace FootballStats.Droid
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahText = global::FootballStats.Droid.Resource.Styleable.ProgressWheel_ahText;
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextColor = global::FootballStats.Droid.Resource.Styleable.ProgressWheel_ahTextColor;
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextSize = global::FootballStats.Droid.Resource.Styleable.ProgressWheel_ahTextSize;
-			global::ModernHttpClient.Resource.String.library_name = global::FootballStats.Droid.Resource.String.library_name;
+			global::ModernHttpClient.Resource.String.app_name = global::FootballStats.Droid.Resource.String.app_name;
+			global::ModernHttpClient.Resource.String.hello = global::FootballStats.Droid.Resource.String.hello;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::FootballStats.Droid.Resource.Attribute.alpha;
-			global::Xamarin.Essentials.Resource.Attribute.coordinatorLayoutStyle = global::FootballStats.Droid.Resource.Attribute.coordinatorLayoutStyle;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::FootballStats.Droid.Resource.Attribute.font;
 			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::FootballStats.Droid.Resource.Attribute.fontProviderAuthority;
 			global::Xamarin.Essentials.Resource.Attribute.fontProviderCerts = global::FootballStats.Droid.Resource.Attribute.fontProviderCerts;
@@ -2734,23 +2734,15 @@ namespace FootballStats.Droid
 			global::Xamarin.Essentials.Resource.Attribute.fontStyle = global::FootballStats.Droid.Resource.Attribute.fontStyle;
 			global::Xamarin.Essentials.Resource.Attribute.fontVariationSettings = global::FootballStats.Droid.Resource.Attribute.fontVariationSettings;
 			global::Xamarin.Essentials.Resource.Attribute.fontWeight = global::FootballStats.Droid.Resource.Attribute.fontWeight;
-			global::Xamarin.Essentials.Resource.Attribute.keylines = global::FootballStats.Droid.Resource.Attribute.keylines;
-			global::Xamarin.Essentials.Resource.Attribute.layout_anchor = global::FootballStats.Droid.Resource.Attribute.layout_anchor;
-			global::Xamarin.Essentials.Resource.Attribute.layout_anchorGravity = global::FootballStats.Droid.Resource.Attribute.layout_anchorGravity;
-			global::Xamarin.Essentials.Resource.Attribute.layout_behavior = global::FootballStats.Droid.Resource.Attribute.layout_behavior;
-			global::Xamarin.Essentials.Resource.Attribute.layout_dodgeInsetEdges = global::FootballStats.Droid.Resource.Attribute.layout_dodgeInsetEdges;
-			global::Xamarin.Essentials.Resource.Attribute.layout_insetEdge = global::FootballStats.Droid.Resource.Attribute.layout_insetEdge;
-			global::Xamarin.Essentials.Resource.Attribute.layout_keyline = global::FootballStats.Droid.Resource.Attribute.layout_keyline;
-			global::Xamarin.Essentials.Resource.Attribute.statusBarBackground = global::FootballStats.Droid.Resource.Attribute.statusBarBackground;
 			global::Xamarin.Essentials.Resource.Attribute.ttcIndex = global::FootballStats.Droid.Resource.Attribute.ttcIndex;
+			global::Xamarin.Essentials.Resource.Color.androidx_core_ripple_material_light = global::FootballStats.Droid.Resource.Color.androidx_core_ripple_material_light;
+			global::Xamarin.Essentials.Resource.Color.androidx_core_secondary_text_default_material_light = global::FootballStats.Droid.Resource.Color.androidx_core_secondary_text_default_material_light;
 			global::Xamarin.Essentials.Resource.Color.browser_actions_bg_grey = global::FootballStats.Droid.Resource.Color.browser_actions_bg_grey;
 			global::Xamarin.Essentials.Resource.Color.browser_actions_divider_color = global::FootballStats.Droid.Resource.Color.browser_actions_divider_color;
 			global::Xamarin.Essentials.Resource.Color.browser_actions_text_color = global::FootballStats.Droid.Resource.Color.browser_actions_text_color;
 			global::Xamarin.Essentials.Resource.Color.browser_actions_title_color = global::FootballStats.Droid.Resource.Color.browser_actions_title_color;
 			global::Xamarin.Essentials.Resource.Color.notification_action_color_filter = global::FootballStats.Droid.Resource.Color.notification_action_color_filter;
 			global::Xamarin.Essentials.Resource.Color.notification_icon_bg_color = global::FootballStats.Droid.Resource.Color.notification_icon_bg_color;
-			global::Xamarin.Essentials.Resource.Color.ripple_material_light = global::FootballStats.Droid.Resource.Color.ripple_material_light;
-			global::Xamarin.Essentials.Resource.Color.secondary_text_default_material_light = global::FootballStats.Droid.Resource.Color.secondary_text_default_material_light;
 			global::Xamarin.Essentials.Resource.Dimension.browser_actions_context_menu_max_width = global::FootballStats.Droid.Resource.Dimension.browser_actions_context_menu_max_width;
 			global::Xamarin.Essentials.Resource.Dimension.browser_actions_context_menu_min_padding = global::FootballStats.Droid.Resource.Dimension.browser_actions_context_menu_min_padding;
 			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_horizontal_material = global::FootballStats.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
@@ -2825,43 +2817,28 @@ namespace FootballStats.Droid
 			global::Xamarin.Essentials.Resource.Id.action_divider = global::FootballStats.Droid.Resource.Id.action_divider;
 			global::Xamarin.Essentials.Resource.Id.action_image = global::FootballStats.Droid.Resource.Id.action_image;
 			global::Xamarin.Essentials.Resource.Id.action_text = global::FootballStats.Droid.Resource.Id.action_text;
-			global::Xamarin.Essentials.Resource.Id.all = global::FootballStats.Droid.Resource.Id.all;
 			global::Xamarin.Essentials.Resource.Id.async = global::FootballStats.Droid.Resource.Id.async;
 			global::Xamarin.Essentials.Resource.Id.blocking = global::FootballStats.Droid.Resource.Id.blocking;
-			global::Xamarin.Essentials.Resource.Id.bottom = global::FootballStats.Droid.Resource.Id.bottom;
 			global::Xamarin.Essentials.Resource.Id.browser_actions_header_text = global::FootballStats.Droid.Resource.Id.browser_actions_header_text;
 			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_items = global::FootballStats.Droid.Resource.Id.browser_actions_menu_items;
 			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_item_icon = global::FootballStats.Droid.Resource.Id.browser_actions_menu_item_icon;
 			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_item_text = global::FootballStats.Droid.Resource.Id.browser_actions_menu_item_text;
 			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_view = global::FootballStats.Droid.Resource.Id.browser_actions_menu_view;
-			global::Xamarin.Essentials.Resource.Id.center = global::FootballStats.Droid.Resource.Id.center;
-			global::Xamarin.Essentials.Resource.Id.center_horizontal = global::FootballStats.Droid.Resource.Id.center_horizontal;
-			global::Xamarin.Essentials.Resource.Id.center_vertical = global::FootballStats.Droid.Resource.Id.center_vertical;
 			global::Xamarin.Essentials.Resource.Id.chronometer = global::FootballStats.Droid.Resource.Id.chronometer;
-			global::Xamarin.Essentials.Resource.Id.clip_horizontal = global::FootballStats.Droid.Resource.Id.clip_horizontal;
-			global::Xamarin.Essentials.Resource.Id.clip_vertical = global::FootballStats.Droid.Resource.Id.clip_vertical;
 			global::Xamarin.Essentials.Resource.Id.dialog_button = global::FootballStats.Droid.Resource.Id.dialog_button;
-			global::Xamarin.Essentials.Resource.Id.end = global::FootballStats.Droid.Resource.Id.end;
-			global::Xamarin.Essentials.Resource.Id.fill = global::FootballStats.Droid.Resource.Id.fill;
-			global::Xamarin.Essentials.Resource.Id.fill_horizontal = global::FootballStats.Droid.Resource.Id.fill_horizontal;
-			global::Xamarin.Essentials.Resource.Id.fill_vertical = global::FootballStats.Droid.Resource.Id.fill_vertical;
 			global::Xamarin.Essentials.Resource.Id.forever = global::FootballStats.Droid.Resource.Id.forever;
 			global::Xamarin.Essentials.Resource.Id.icon = global::FootballStats.Droid.Resource.Id.icon;
 			global::Xamarin.Essentials.Resource.Id.icon_group = global::FootballStats.Droid.Resource.Id.icon_group;
 			global::Xamarin.Essentials.Resource.Id.info = global::FootballStats.Droid.Resource.Id.info;
 			global::Xamarin.Essentials.Resource.Id.italic = global::FootballStats.Droid.Resource.Id.italic;
-			global::Xamarin.Essentials.Resource.Id.left = global::FootballStats.Droid.Resource.Id.left;
 			global::Xamarin.Essentials.Resource.Id.line1 = global::FootballStats.Droid.Resource.Id.line1;
 			global::Xamarin.Essentials.Resource.Id.line3 = global::FootballStats.Droid.Resource.Id.line3;
-			global::Xamarin.Essentials.Resource.Id.none = global::FootballStats.Droid.Resource.Id.none;
 			global::Xamarin.Essentials.Resource.Id.normal = global::FootballStats.Droid.Resource.Id.normal;
 			global::Xamarin.Essentials.Resource.Id.notification_background = global::FootballStats.Droid.Resource.Id.notification_background;
 			global::Xamarin.Essentials.Resource.Id.notification_main_column = global::FootballStats.Droid.Resource.Id.notification_main_column;
 			global::Xamarin.Essentials.Resource.Id.notification_main_column_container = global::FootballStats.Droid.Resource.Id.notification_main_column_container;
-			global::Xamarin.Essentials.Resource.Id.right = global::FootballStats.Droid.Resource.Id.right;
 			global::Xamarin.Essentials.Resource.Id.right_icon = global::FootballStats.Droid.Resource.Id.right_icon;
 			global::Xamarin.Essentials.Resource.Id.right_side = global::FootballStats.Droid.Resource.Id.right_side;
-			global::Xamarin.Essentials.Resource.Id.start = global::FootballStats.Droid.Resource.Id.start;
 			global::Xamarin.Essentials.Resource.Id.tag_accessibility_actions = global::FootballStats.Droid.Resource.Id.tag_accessibility_actions;
 			global::Xamarin.Essentials.Resource.Id.tag_accessibility_clickable_spans = global::FootballStats.Droid.Resource.Id.tag_accessibility_clickable_spans;
 			global::Xamarin.Essentials.Resource.Id.tag_accessibility_heading = global::FootballStats.Droid.Resource.Id.tag_accessibility_heading;
@@ -2874,7 +2851,6 @@ namespace FootballStats.Droid
 			global::Xamarin.Essentials.Resource.Id.text2 = global::FootballStats.Droid.Resource.Id.text2;
 			global::Xamarin.Essentials.Resource.Id.time = global::FootballStats.Droid.Resource.Id.time;
 			global::Xamarin.Essentials.Resource.Id.title = global::FootballStats.Droid.Resource.Id.title;
-			global::Xamarin.Essentials.Resource.Id.top = global::FootballStats.Droid.Resource.Id.top;
 			global::Xamarin.Essentials.Resource.Integer.status_bar_notification_info_maxnum = global::FootballStats.Droid.Resource.Integer.status_bar_notification_info_maxnum;
 			global::Xamarin.Essentials.Resource.Layout.browser_actions_context_menu_page = global::FootballStats.Droid.Resource.Layout.browser_actions_context_menu_page;
 			global::Xamarin.Essentials.Resource.Layout.browser_actions_context_menu_row = global::FootballStats.Droid.Resource.Layout.browser_actions_context_menu_row;
@@ -2885,6 +2861,10 @@ namespace FootballStats.Droid
 			global::Xamarin.Essentials.Resource.Layout.notification_template_icon_group = global::FootballStats.Droid.Resource.Layout.notification_template_icon_group;
 			global::Xamarin.Essentials.Resource.Layout.notification_template_part_chronometer = global::FootballStats.Droid.Resource.Layout.notification_template_part_chronometer;
 			global::Xamarin.Essentials.Resource.Layout.notification_template_part_time = global::FootballStats.Droid.Resource.Layout.notification_template_part_time;
+			global::Xamarin.Essentials.Resource.String.copy_toast_msg = global::FootballStats.Droid.Resource.String.copy_toast_msg;
+			global::Xamarin.Essentials.Resource.String.fallback_menu_item_copy_link = global::FootballStats.Droid.Resource.String.fallback_menu_item_copy_link;
+			global::Xamarin.Essentials.Resource.String.fallback_menu_item_open_in_browser = global::FootballStats.Droid.Resource.String.fallback_menu_item_open_in_browser;
+			global::Xamarin.Essentials.Resource.String.fallback_menu_item_share_link = global::FootballStats.Droid.Resource.String.fallback_menu_item_share_link;
 			global::Xamarin.Essentials.Resource.String.status_bar_notification_info_overflow = global::FootballStats.Droid.Resource.String.status_bar_notification_info_overflow;
 			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification = global::FootballStats.Droid.Resource.Style.TextAppearance_Compat_Notification;
 			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Info = global::FootballStats.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
@@ -2893,22 +2873,10 @@ namespace FootballStats.Droid
 			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Title = global::FootballStats.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
 			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionContainer = global::FootballStats.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
 			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionText = global::FootballStats.Droid.Resource.Style.Widget_Compat_NotificationActionText;
-			global::Xamarin.Essentials.Resource.Style.Widget_Support_CoordinatorLayout = global::FootballStats.Droid.Resource.Style.Widget_Support_CoordinatorLayout;
 			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem = global::FootballStats.Droid.Resource.Styleable.ColorStateListItem;
 			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem_alpha = global::FootballStats.Droid.Resource.Styleable.ColorStateListItem_alpha;
 			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem_android_alpha = global::FootballStats.Droid.Resource.Styleable.ColorStateListItem_android_alpha;
 			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem_android_color = global::FootballStats.Droid.Resource.Styleable.ColorStateListItem_android_color;
-			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout = global::FootballStats.Droid.Resource.Styleable.CoordinatorLayout;
-			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_keylines = global::FootballStats.Droid.Resource.Styleable.CoordinatorLayout_keylines;
-			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout = global::FootballStats.Droid.Resource.Styleable.CoordinatorLayout_Layout;
-			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity = global::FootballStats.Droid.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity;
-			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor = global::FootballStats.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor;
-			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity = global::FootballStats.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity;
-			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior = global::FootballStats.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior;
-			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges = global::FootballStats.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges;
-			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge = global::FootballStats.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge;
-			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline = global::FootballStats.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline;
-			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::FootballStats.Droid.Resource.Styleable.CoordinatorLayout_statusBarBackground;
 			global::Xamarin.Essentials.Resource.Styleable.FontFamily = global::FootballStats.Droid.Resource.Styleable.FontFamily;
 			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont = global::FootballStats.Droid.Resource.Styleable.FontFamilyFont;
 			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_font = global::FootballStats.Droid.Resource.Styleable.FontFamilyFont_android_font;
@@ -2943,6 +2911,7 @@ namespace FootballStats.Droid
 			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_startY = global::FootballStats.Droid.Resource.Styleable.GradientColor_android_startY;
 			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_tileMode = global::FootballStats.Droid.Resource.Styleable.GradientColor_android_tileMode;
 			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_type = global::FootballStats.Droid.Resource.Styleable.GradientColor_android_type;
+			global::Xamarin.Essentials.Resource.Xml.image_share_filepaths = global::FootballStats.Droid.Resource.Xml.image_share_filepaths;
 			global::Xamarin.Essentials.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::FootballStats.Droid.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_in = global::FootballStats.Droid.Resource.Animation.abc_fade_in;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_out = global::FootballStats.Droid.Resource.Animation.abc_fade_out;
@@ -12820,56 +12789,74 @@ namespace FootballStats.Droid
 			// aapt resource value: 0x7F0D001A
 			public const int abc_toolbar_collapse_description = 2131558426;
 			
-			// aapt resource value: 0x7F0D001B
-			public const int appbar_scrolling_view_behavior = 2131558427;
-			
 			// aapt resource value: 0x7F0D001C
-			public const int bottom_sheet_behavior = 2131558428;
+			public const int appbar_scrolling_view_behavior = 2131558428;
+			
+			// aapt resource value: 0x7F0D001B
+			public const int app_name = 2131558427;
 			
 			// aapt resource value: 0x7F0D001D
-			public const int character_counter_content_description = 2131558429;
+			public const int bottom_sheet_behavior = 2131558429;
 			
 			// aapt resource value: 0x7F0D001E
-			public const int character_counter_pattern = 2131558430;
+			public const int character_counter_content_description = 2131558430;
 			
 			// aapt resource value: 0x7F0D001F
-			public const int fab_transformation_scrim_behavior = 2131558431;
+			public const int character_counter_pattern = 2131558431;
 			
 			// aapt resource value: 0x7F0D0020
-			public const int fab_transformation_sheet_behavior = 2131558432;
+			public const int copy_toast_msg = 2131558432;
 			
 			// aapt resource value: 0x7F0D0021
-			public const int hide_bottom_view_on_scroll_behavior = 2131558433;
+			public const int fab_transformation_scrim_behavior = 2131558433;
 			
 			// aapt resource value: 0x7F0D0022
-			public const int library_name = 2131558434;
+			public const int fab_transformation_sheet_behavior = 2131558434;
 			
 			// aapt resource value: 0x7F0D0023
-			public const int mtrl_chip_close_icon_content_description = 2131558435;
+			public const int fallback_menu_item_copy_link = 2131558435;
 			
 			// aapt resource value: 0x7F0D0024
-			public const int overflow_tab_title = 2131558436;
+			public const int fallback_menu_item_open_in_browser = 2131558436;
 			
 			// aapt resource value: 0x7F0D0025
-			public const int password_toggle_content_description = 2131558437;
+			public const int fallback_menu_item_share_link = 2131558437;
 			
 			// aapt resource value: 0x7F0D0026
-			public const int path_password_eye = 2131558438;
+			public const int hello = 2131558438;
 			
 			// aapt resource value: 0x7F0D0027
-			public const int path_password_eye_mask_strike_through = 2131558439;
+			public const int hide_bottom_view_on_scroll_behavior = 2131558439;
 			
 			// aapt resource value: 0x7F0D0028
-			public const int path_password_eye_mask_visible = 2131558440;
+			public const int library_name = 2131558440;
 			
 			// aapt resource value: 0x7F0D0029
-			public const int path_password_strike_through = 2131558441;
+			public const int mtrl_chip_close_icon_content_description = 2131558441;
 			
 			// aapt resource value: 0x7F0D002A
-			public const int search_menu_title = 2131558442;
+			public const int overflow_tab_title = 2131558442;
 			
 			// aapt resource value: 0x7F0D002B
-			public const int status_bar_notification_info_overflow = 2131558443;
+			public const int password_toggle_content_description = 2131558443;
+			
+			// aapt resource value: 0x7F0D002C
+			public const int path_password_eye = 2131558444;
+			
+			// aapt resource value: 0x7F0D002D
+			public const int path_password_eye_mask_strike_through = 2131558445;
+			
+			// aapt resource value: 0x7F0D002E
+			public const int path_password_eye_mask_visible = 2131558446;
+			
+			// aapt resource value: 0x7F0D002F
+			public const int path_password_strike_through = 2131558447;
+			
+			// aapt resource value: 0x7F0D0030
+			public const int search_menu_title = 2131558448;
+			
+			// aapt resource value: 0x7F0D0031
+			public const int status_bar_notification_info_overflow = 2131558449;
 			
 			static String()
 			{
@@ -17544,7 +17531,10 @@ namespace FootballStats.Droid
 		{
 			
 			// aapt resource value: 0x7F100000
-			public const int xamarin_essentials_fileprovider_file_paths = 2131755008;
+			public const int image_share_filepaths = 2131755008;
+			
+			// aapt resource value: 0x7F100001
+			public const int xamarin_essentials_fileprovider_file_paths = 2131755009;
 			
 			static Xml()
 			{

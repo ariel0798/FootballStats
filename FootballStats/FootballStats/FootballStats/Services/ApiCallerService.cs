@@ -1,29 +1,20 @@
 ﻿using Acr.UserDialogs;
 using FootballStats.Services.Interfaces;
 using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace FootballStats.ViewModels
+namespace FootballStats.Services
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class ApiCallerService : IApiCallerService
     {
-        protected IUserDialogs PageDialogs = UserDialogs.Instance;
-        protected IApiManager ApiManager;
-        public event PropertyChangedEventHandler PropertyChanged;
-        
         public bool IsBusy { get; set; }
-        public  BaseViewModel(IApiManager apiManager)
-        {
-            ApiManager = apiManager;
-        }
 
         public async Task RunSafe(Task task, bool ShowLoading = true, string loadingMessage = null)
         {
             try
             {
-                if (IsBusy) 
+                if (IsBusy)
                     return;
 
                 IsBusy = true;
