@@ -7,5 +7,6 @@ namespace FootballStats
         public const string TrophyPage = "TrophyPage";
         public const string LeaguePage = "LeaguePage";
         public const string HomePage = "HomePage";
+        
     }
 }

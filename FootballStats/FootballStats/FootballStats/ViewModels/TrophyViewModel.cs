@@ -1,49 +1,34 @@
 ﻿using FootballStats.Models.Trophies;
 using FootballStats.Services.Interfaces;
+using Newtonsoft.Json;
 using Prism.Commands;
-using Prism.Services;
-using Refit;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Essentials;
-
+using System.Threading.Tasks;
 namespace FootballStats.ViewModels
 {
     class TrophyViewModel : BaseViewModel
     {
-        readonly IPageDialogService pageDialogService;
-
-        public TrophyViewModel(IPageDialogService pageDialogService)
+        public TrophyViewModel(IApiManager apiManager) : base(apiManager)
         {
-            this.pageDialogService = pageDialogService;
         }
 
         public Trophy Trophy { get; set; }
 
-        public DelegateCommand GetTrophyDataCommand => new DelegateCommand(async () =>
+        public DelegateCommand GetTrophyDataCommand => new DelegateCommand(async () => await RunSafe(GetData()));
+        
+        async Task GetData()
         {
-            var current = Connectivity.NetworkAccess;
+            var footballResponse = await ApiManager.GetTrophiesById(276);
 
-            if (current == NetworkAccess.Internet)
+            if (footballResponse.IsSuccessStatusCode)
             {
-                var serviceApi = RestService.For<IRefitFootballApiService>(Config.FootballApiUrl);
-
-                var trophy = await serviceApi.GetTrophiesById(276);
-
-                if (trophy != null)
-                {
-                    this.Trophy = trophy.Api.Trophies[1];
-                }
-                else
-                {
-                    await pageDialogService.DisplayAlertAsync("Error", "An error occurred connecting to the API", "Ok");
-                }
+                var jsonResponse = await footballResponse.Content.ReadAsStringAsync();
+                var trophies = await Task.Run(() => JsonConvert.DeserializeObject<Trophies>(jsonResponse));
+                Trophy = trophies.Api.Trophies[1];
             }
             else
             {
-                await pageDialogService.DisplayAlertAsync("No Internet", "Please check your internet connection", "Ok");
+                await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
             }
-        });
+        }
     }
 }

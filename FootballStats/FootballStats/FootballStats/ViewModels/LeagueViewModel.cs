@@ -1,48 +1,36 @@
 ﻿using FootballStats.Models.Leagues;
 using FootballStats.Services.Interfaces;
+using Newtonsoft.Json;
 using Prism.Commands;
-using Prism.Services;
-using Refit;
-using Xamarin.Essentials;
+using System.Threading.Tasks;
 
 
 namespace FootballStats.ViewModels
 {
    public  class LeagueViewModel : BaseViewModel
     {
-
-        readonly IPageDialogService pageDialogService;
-
-        public LeagueViewModel(IPageDialogService pageDialogService)
+        public LeagueViewModel(IApiManager apiManager) : base(apiManager)
         {
-            this.pageDialogService = pageDialogService;
         }
+
         public League League { get; set; }
 
-        public DelegateCommand GetLeagueCommand => new DelegateCommand(async () =>
+        public DelegateCommand GetLeagueCommand => new DelegateCommand(async () => await RunSafe(GetData()));
+
+        async Task GetData()
         {
-            var current = Connectivity.NetworkAccess;
+            var footballResponse = await ApiManager.GetLeaguesById(5);
 
-            if (current == NetworkAccess.Internet)
+            if (footballResponse.IsSuccessStatusCode)
             {
-                var serviceApi = RestService.For<IRefitFootballApiService>(Config.FootballApiUrl);
-
-                var leagues = await serviceApi.GetLeaguesById(5);
-
-                if (leagues != null)
-                {
-                    this.League = leagues.Api.Leagues[0];
-                }
-                else
-                {
-                    await pageDialogService.DisplayAlertAsync("Error", "An error occurred connecting to the API", "Ok");
-                }
+                var jsonResponse = await footballResponse.Content.ReadAsStringAsync();
+                var leagues = await Task.Run(() => JsonConvert.DeserializeObject<Leagues>(jsonResponse));
+                League = leagues.Api.Leagues[0];
             }
             else
             {
-                await pageDialogService.DisplayAlertAsync("No Internet", "Please check your internet connection", "Ok");
-            }
-            
-        });
+                await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
+}
+        }
     }
 }

@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using FootballStats.Services.Interfaces;
 
 namespace FootballStats.ViewModels
 {
     public class PlayerViewModel : BaseViewModel
     {
+        public PlayerViewModel(IApiManager apiManager) : base(apiManager)
+        {
+        }
     }
 }
