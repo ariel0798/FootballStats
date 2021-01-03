@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballStats.Android", "Fo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballStats.iOS", "FootballStats\FootballStats.iOS\FootballStats.iOS.csproj", "{4A7D5161-C1CE-43B1-B701-D1B40AD34486}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballStats", "FootballStats\FootballStats\FootballStats.csproj", "{558FAA7C-CEC2-44C0-B2C2-755470F1914D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballStats", "FootballStats\FootballStats\FootballStats.csproj", "{558FAA7C-CEC2-44C0-B2C2-755470F1914D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
