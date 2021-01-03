@@ -1,11 +1,10 @@
 ﻿using Newtonsoft.Json;
-using System.Text.Json.Serialization;
 
 namespace FootballStats.Models.Teams
 {
     public class Team
     {
-        [JsonPropertyName("team_id")]
+        [JsonProperty(propertyName: "team_id")]
         public int TeamId { get; set; }
 
         public string Name { get; set; }

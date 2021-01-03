@@ -1,23 +1,23 @@
-﻿using System;
-using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace FootballStats.Models.Fixtures
 {
     public class Fixture
     {
-        [JsonPropertyName("fixture_id")] 
+        [JsonProperty(propertyName: "fixture_id")] 
 
         public int FixtureId { get; set; }
 
-        [JsonPropertyName("league_id")]
+        [JsonProperty(propertyName: "league_id")]
         public int LeagueId { get; set; }
 
         public League League { get; set; }
 
-        [JsonPropertyName("event_date")]
+        [JsonProperty(propertyName: "event_date")]
         public DateTime EventDate { get; set; }
 
-        [JsonPropertyName("event_timestamp")]
+        [JsonProperty(propertyName: "event_timestamp")]
         public int EventTimestamp { get; set; }
 
         public int FirstHalfStart { get; set; }
@@ -44,10 +44,10 @@ namespace FootballStats.Models.Fixtures
 
     public class HomeTeam
     {
-        [JsonPropertyName("team_id")]
+        [JsonProperty(propertyName: "team_id")]
         public int TeamId { get; set; }
 
-        [JsonPropertyName("team_name")]
+        [JsonProperty(propertyName: "team_name")]
         public string TeamName { get; set; }
 
         public string Logo { get; set; }
@@ -55,10 +55,10 @@ namespace FootballStats.Models.Fixtures
 
     public class AwayTeam
     {
-        [JsonPropertyName("team_id")]
+        [JsonProperty(propertyName:"team_id")]
         public int TeamId { get; set; }
 
-        [JsonPropertyName("team_name")]
+        [JsonProperty(propertyName: "team_name")]
         public string TeamName { get; set; }
 
         public string Logo { get; set; }

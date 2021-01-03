@@ -9,22 +9,20 @@ namespace FootballStats.ViewModels
 {
     public class TeamViewModel : BaseViewModel
     {
-        
-        readonly IApiManager apiManager;
         public TeamViewModel( IApiManager apiManager)
             :base(apiManager)
         {
-            this.apiManager = apiManager;
-    }
+          
+        }
 
         public Team Team { get; set; }
-        //
+        
         public DelegateCommand GetTeamDataCommand => new DelegateCommand(async () => await RunSafe(GetData()));
 
 
         async Task GetData()
         {
-            var footballResponse = await apiManager.GetTeamById(33);
+            var footballResponse = await ApiManager.GetTeamById(33);
 
             if (footballResponse.IsSuccessStatusCode)
             {

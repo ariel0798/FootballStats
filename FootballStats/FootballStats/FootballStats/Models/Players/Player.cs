@@ -1,13 +1,13 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace FootballStats.Models.Players
 {
     public class Player
     {
-        [JsonPropertyName("player_id")]
+        [JsonProperty(propertyName: "player_id")]
         public int PlayerId { get; set; }
 
-        [JsonPropertyName("player_name")]
+        [JsonProperty(propertyName: "player_name")]
         public string PlayerName { get; set; }
 
         public string Firstname { get; set; }
@@ -16,13 +16,13 @@ namespace FootballStats.Models.Players
         public string Position { get; set; }
         public int Age { get; set; }
 
-        [JsonPropertyName("birth_date")]
+        [JsonProperty(propertyName: "birth_date")]
         public string BirthDate { get; set; }
 
-        [JsonPropertyName("birth_place")]
+        [JsonProperty(propertyName: "birth_place")]
         public string BirthPlace { get; set; }
 
-        [JsonPropertyName("birth_country")]
+        [JsonProperty(propertyName: "birth_country")]
         public string BirthCountry { get; set; }
 
         public string Nationality { get; set; }
@@ -31,10 +31,10 @@ namespace FootballStats.Models.Players
         public string Injured { get; set; }
         public string Rating { get; set; }
 
-        [JsonPropertyName("team_id")]
+        [JsonProperty(propertyName: "team_id")]
         public int TeamId { get; set; }
 
-        [JsonPropertyName("team_name")]
+        [JsonProperty(propertyName: "team_name")]
 
         public string TeamName { get; set; }
 
@@ -122,7 +122,7 @@ namespace FootballStats.Models.Players
     public class Games
     {
         public int Appearences { get; set; }
-        [JsonPropertyName("minutes_played")]
+        [JsonProperty(propertyName: "minutes_played")]
         public int MinutesPlayed { get; set; }
         public int Lineups { get; set; }
     }
