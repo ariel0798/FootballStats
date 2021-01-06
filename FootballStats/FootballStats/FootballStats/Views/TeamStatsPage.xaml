@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FootballStats.Views.TeamStatsPage"
+             Title="Team statistic" >
+    <ContentPage.Content >
+        <ScrollView>
+            <Grid VerticalOptions="Start"
+              HorizontalOptions="Center"
+              Padding="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+
+                    <Label Text="{Binding Team.Name}"  Grid.Column="0" Grid.Row="0" FontSize="Large"/>
+
+                    <Image Source="{Binding Team.Logo}"  Grid.Column="0" Grid.Row="1"/>
+
+                <Frame BorderColor="Gray" CornerRadius="5" Padding="8" HasShadow="True" Grid.Column="0" Grid.Row="2" Grid.RowSpan="4" BackgroundColor="White">
+                    <StackLayout>
+                        <Frame>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <BoxView Style="{StaticResource BoxCell}" Grid.Column="0" Grid.Row="0"/>
+                                <BoxView Style="{StaticResource BoxCell}" Grid.Column="1" Grid.Row="0"/>
+                                <BoxView Style="{StaticResource BoxCell}" Grid.Column="2" Grid.Row="0"/>
+
+                                <Label Text="Name" Style="{StaticResource TableTitleRowLabel}" Grid.Column="0" Grid.Row="0" />
+                                <Label Text="Home" Style="{StaticResource TableTitleRowLabel}" Grid.Column="1" Grid.Row="0"/>
+                                <Label Text="Away" Style="{StaticResource TableTitleRowLabel}" Grid.Column="2" Grid.Row="0"/>
+                                <Label Text="Total" Style="{StaticResource TableTitleRowLabel}" Grid.Column="3" Grid.Row="0"/>
+
+                            </Grid>
+                        </Frame>
+
+                            <Frame>
+                                <Grid >
+                                    <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                    
+
+                                    <BoxView Style="{StaticResource BoxCell}" Grid.Column="0" Grid.Row="0"/>
+                                    <BoxView Style="{StaticResource BoxCell}" Grid.Column="1" Grid.Row="0"/>
+                                <BoxView Style="{StaticResource BoxCell}" Grid.Column="2" Grid.Row="0"/>
+
+                                <Label Text="Wins" Style="{StaticResource TableRowLabel}" Grid.Column="0" Grid.Row="0" />
+                                    <Label Text="{Binding Statistic.Matchs.Wins.Home}" Style="{StaticResource TableRowLabel}" Grid.Column="1" Grid.Row="0"/>
+                                    <Label Text="{Binding Statistic.Matchs.Wins.Away}" Style="{StaticResource TableRowLabel}" Grid.Column="2" Grid.Row="0"/>
+                                    <Label Text="{Binding Statistic.Matchs.Wins.Total}" Style="{StaticResource TableRowLabel}" Grid.Column="3" Grid.Row="0"/>
+
+                                </Grid>
+                            </Frame>
+                        
+                            <Frame>
+                                <Grid >
+                                    <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                    <BoxView Style="{StaticResource BoxCell}" Grid.Column="0" Grid.Row="0"/>
+                                    <BoxView Style="{StaticResource BoxCell}" Grid.Column="1" Grid.Row="0"/>
+                                <BoxView Style="{StaticResource BoxCell}" Grid.Column="2" Grid.Row="0"/>
+
+                                <Label Text="Loses" Style="{StaticResource TableRowLabel}" Grid.Column="0" Grid.Row="0" />
+                                    <Label Text="{Binding Statistic.Matchs.Loses.Home}" Style="{StaticResource TableRowLabel}" Grid.Column="1" Grid.Row="0"/>
+                                    <Label Text="{Binding Statistic.Matchs.Loses.Away}" Style="{StaticResource TableRowLabel}" Grid.Column="2" Grid.Row="0"/>
+                                    <Label Text="{Binding Statistic.Matchs.Loses.Total}" Style="{StaticResource TableRowLabel}" Grid.Column="3" Grid.Row="0"/>
+
+                                </Grid>
+                            </Frame>
+
+                        <Frame>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <BoxView Style="{StaticResource BoxCell}" Grid.Column="0" Grid.Row="0"/>
+                                <BoxView Style="{StaticResource BoxCell}" Grid.Column="1" Grid.Row="0"/>
+                                <BoxView Style="{StaticResource BoxCell}" Grid.Column="2" Grid.Row="0"/>
+
+                                <Label Text="Draws" Style="{StaticResource TableRowLabel}" Grid.Column="0" Grid.Row="0" />
+                                <Label Text="{Binding Statistic.Matchs.Draws.Home}" Style="{StaticResource TableRowLabel}" Grid.Column="1" Grid.Row="0"/>
+                                <Label Text="{Binding Statistic.Matchs.Draws.Away}" Style="{StaticResource TableRowLabel}" Grid.Column="2" Grid.Row="0"/>
+                                <Label Text="{Binding Statistic.Matchs.Draws.Total}" Style="{StaticResource TableRowLabel}" Grid.Column="3" Grid.Row="0"/>
+
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -136,4 +136,7 @@
       <Name>FootballStats</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\UnknownPlayer.jpg" />
+  </ItemGroup>
 </Project>

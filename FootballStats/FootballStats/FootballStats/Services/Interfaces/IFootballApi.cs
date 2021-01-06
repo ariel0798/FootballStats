@@ -24,5 +24,8 @@ namespace FootballStats.Services.Interfaces
 
         [Get("/leagues/team/{teamId}")]
         Task<HttpResponseMessage> GetLeaguesById(int teamId);
+
+        [Get("/statistics/{leagueId}/{teamId}")]
+        Task<HttpResponseMessage> GetTeamStatisticsByLeagueIdAndTeamId(int leagueId, int teamId);
     }
 }

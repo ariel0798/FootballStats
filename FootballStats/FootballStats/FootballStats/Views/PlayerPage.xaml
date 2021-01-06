@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FootballStats.Views.PlayerPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid VerticalOptions="Start"
+              HorizontalOptions="Center"
+              Padding="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+
+                <Label Text="{Binding Player.PlayerName}"  Grid.Column="0" Grid.Row="0" FontSize="Large"  Grid.ColumnSpan="1"/>
+
+                <Image Source="UnknownPlayer.jpg"  Grid.Column="0" Grid.Row="1"/>
+                
+                <Frame BorderColor="Gray" CornerRadius="5" Padding="8" HasShadow="True"  Grid.Column="1" Grid.Row="1" >
+                    
+                    <Grid HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+    
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Label Text="Name: "  Grid.Column="0" Grid.Row="0"  />
+                        <Label Text="{Binding Player.PlayerName}"  Grid.Column="1"  Grid.Row="0" /> 
+
+                        <Label Text="Born date: "  Grid.Column="0" Grid.Row="1" />
+                        <Label Text="{Binding Player.BirthDate}"  Grid.Column="1"  Grid.Row="1" />
+
+                        <Label Text="Height: "  Grid.Column="0" Grid.Row="2" />
+                        <Label Text="{Binding Player.Height}"  Grid.Column="1"  Grid.Row="2" />
+
+                        <Label Text="Weight: "  Grid.Column="0" Grid.Row="3" />
+                        <Label Text="{Binding Player.Weight}"  Grid.Column="1"  Grid.Row="3" />
+
+                        <Label Text="Position: "  Grid.Column="0" Grid.Row="4" />
+                        <Label Text="{Binding Player.Position}"  Grid.Column="1"  Grid.Row="4" />
+
+                        <Label Text="Nationality: "  Grid.Column="0" Grid.Row="5" />
+                        <Label Text="{Binding Player.Nationality}"  Grid.Column="1"  Grid.Row="5" /> 
+
+                        <Label Text="Team name: "  Grid.Column="0" Grid.Row="6" />
+                        <Label Text="{Binding Player.TeamName}"  Grid.Column="1"  Grid.Row="6" />
+
+                        <Label Text="Age: "  Grid.Column="0" Grid.Row="7" />
+                        <Label Text="{Binding Player.Age}"  Grid.Column="1"  Grid.Row="7" />
+                    </Grid>
+                </Frame>
+
+                <Frame BorderColor="Gray" CornerRadius="5" Padding="8" HasShadow="True"  Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="2" >
+
+                    <Grid HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="Statistics of 2020"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1"/>
+
+                        <Label Text="Goals: "  Grid.Column="0" Grid.Row="1" />
+                        <Label Text="{Binding Player.Goals.Total}"  Grid.Column="1" Grid.Row="1" />
+
+                        <Label Text="Shots: "  Grid.Column="0" Grid.Row="2" />
+                        <Label Text="{Binding Player.Shots.Total}"  Grid.Column="1"  Grid.Row="2" />
+
+                        <Label Text="Red cards: "  Grid.Column="0" Grid.Row="3" />
+                        <Label Text="{Binding Player.Cards.Red}"  Grid.Column="1"  Grid.Row="3" />
+
+                        <Label Text="Yellow cards: "  Grid.Column="0" Grid.Row="4" />
+                        <Label Text="{Binding Player.Cards.Yellow}"  Grid.Column="1"  Grid.Row="4" />
+
+                    </Grid>
+                </Frame>
+                
+                <Label Text="Trophies"   FontSize="Large" Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="1"/>
+
+                
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

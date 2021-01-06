@@ -16,5 +16,7 @@ namespace FootballStats.Services.Interfaces
         Task<HttpResponseMessage> GetTrophiesById(int playerId);
 
         Task<HttpResponseMessage> GetLeaguesById(int teamId);
+
+        Task<HttpResponseMessage> GetTeamStatisticsByLeagueIdAndTeamId(int leagueId, int teamId);
     }
 }
