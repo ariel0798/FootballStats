@@ -4,6 +4,7 @@ using FootballStats.Services.Interfaces;
 using Newtonsoft.Json;
 using Prism.Commands;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace FootballStats.ViewModels
 {
@@ -12,23 +13,22 @@ namespace FootballStats.ViewModels
         public TeamViewModel( IApiManager apiManager)
             :base(apiManager)
         {
-          
+            Task.Run(async () => await RunSafe(GetData()));
         }
 
-        public Team Team { get; set; }
+        public List <Team> TeamList { get; set; }
         
-        public DelegateCommand GetTeamDataCommand => new DelegateCommand(async () => await RunSafe(GetData()));
-
-
+      
         async Task GetData()
         {
-            var footballResponse = await ApiManager.GetTeamById(33);
+            var footballResponse = await ApiManager.GetTeamByLeagueId(2);
 
             if (footballResponse.IsSuccessStatusCode)
             {
                 var jsonResponse = await footballResponse.Content.ReadAsStringAsync();
                 var teams = await Task.Run(() => JsonConvert.DeserializeObject<Teams>(jsonResponse));
-                Team = teams.Api.Teams[0];
+                var teamsContent = teams;
+                TeamList = teams.Api.Teams;
             }
             else
             {
