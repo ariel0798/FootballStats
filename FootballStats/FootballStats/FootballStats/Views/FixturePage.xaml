@@ -4,31 +4,20 @@
              x:Class="FootballStats.Views.FixturePage"
              Title="Fixtures">
     <ContentPage.Content>
-        <Grid>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-
-            </Grid.ColumnDefinitions>
+        <Grid HorizontalOptions="Center" VerticalOptions="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-
-            <Label Text="Hola"></Label>
-            <Label Text="{Binding Fixture.Venue}"></Label>
-            <Label Text="{Binding Fixture.Status}"></Label>
-            <Button Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="1" Text="Get data"  Command="{Binding GetFixtureDataCommand}" />
+            <CollectionView ItemsSource=" {Binding Fixtures}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding Name}"></Label>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>   
+            </CollectionView>
+         
+            
         </Grid>
     </ContentPage.Content>   
    
