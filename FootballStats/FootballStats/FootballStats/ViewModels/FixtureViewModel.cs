@@ -42,13 +42,17 @@ namespace FootballStats.ViewModels
         }*/
        void GetMock()
         {
-            Fixture.AwayTeam.TeamName = "Leicester";
-            Fixture.AwayTeam.Logo = "https://media.api-sports.io/football/teams/46.png";
-            Fixture.HomeTeam.TeamName = "Manchester United";
-            Fixture.HomeTeam.Logo = "https://media.api-sports.io/football/teams/46.png";
-            Fixture.Status = "FT";
-            Fixture.GoalsAwayTeam = 2;
-            Fixture.GoalsHomeTeam = 1;
+            var fixture = new Fixture();
+
+            fixture.AwayTeam.TeamName = "Leicester";
+            fixture.AwayTeam.Logo = "https://media.api-sports.io/football/teams/46.png";
+            fixture.HomeTeam.TeamName = "Manchester United";
+            fixture.HomeTeam.Logo = "https://media.api-sports.io/football/teams/46.png";
+            fixture.Status = "Match Finished";
+            fixture.GoalsAwayTeam = 2;
+            fixture.GoalsHomeTeam = 1;
+
+            Fixture = fixture;
         }
 
     }
