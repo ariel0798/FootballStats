@@ -28,7 +28,7 @@ namespace FootballStats.Models.Fixtures
         public int Elapsed { get; set; }
         public string Venue { get; set; }
         public object Referee { get; set; }
-        public HomeTeam SomeTeam { get; set; }
+        public HomeTeam HomeTeam { get; set; }
         public AwayTeam AwayTeam { get; set; }
         public int GoalsHomeTeam { get; set; }
         public int GoalsAwayTeam { get; set; }

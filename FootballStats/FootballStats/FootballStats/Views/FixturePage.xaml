@@ -26,9 +26,9 @@
             </Grid.RowDefinitions>
 
             <Label Text="Hola"></Label>
-            <Label Text="{Binding Fixture.Venue}"></Label>
+            <Label Text="{Binding Fixture.AwayTeam.TeamName}"></Label>
             <Label Text="{Binding Fixture.Status}"></Label>
-            <Button Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="1" Text="Get data"  Command="{Binding GetFixtureDataCommand}" />
+            
         </Grid>
     </ContentPage.Content>   
    
