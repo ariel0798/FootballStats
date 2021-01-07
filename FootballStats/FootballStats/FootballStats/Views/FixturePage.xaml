@@ -9,15 +9,11 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <CollectionView ItemsSource=" {Binding Fixtures}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Label Text="{Binding Name}"></Label>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>   
-            </CollectionView>
-         
-            
+
+            <Label Text="Hola" Grid.Row="0"/>
+            <Label Text="{Binding Fixtures[0].AwayTeam.TeamName}" Grid.Row="1"/>
+            <Label Text="{Binding Fixtures[0].Status}" Grid.Row="2"/>
+
         </Grid>
     </ContentPage.Content>   
    
