@@ -2,19 +2,33 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FootballStats.Views.FixturePage"
+             xmlns:local ="clr-namespace:FootballStats"
              Title="Fixtures">
     <ContentPage.Content>
-        <Grid HorizontalOptions="Center" VerticalOptions="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+        <CollectionView ItemsSource="{Binding Fixtures}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
 
-            <Label Text="Hola" Grid.Row="0"/>
-            <Label Text="{Binding Fixtures[0].AwayTeam.TeamName}" Grid.Row="1"/>
-            <Label Text="{Binding Fixtures[0].Status}" Grid.Row="2"/>
-
-        </Grid>
+                    <Grid Padding="7">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                          
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{HomeTeam.Name}" Grid.Column="1" Grid.Row="0"></Label>
+                        <Image Source="{HomeTeam.Logo}" Grid.Column="1" Grid.Row="0"></Image>
+                        <Label Text="{GoalsHomeTeam}" Grid.Column="1" Grid.Row="0"></Label>
+                        <Label Text="{AwayTeam.Name}" Grid.Column="2" Grid.Row="0"></Label>
+                        <Image Source="{AwayTeam.Logo}" Grid.Column="2" Grid.Row="0"></Image>
+                        <Label Text="{GoalsAwayTeam}"  Grid.Column="2" Grid.Row="0"></Label>
+                    </Grid>
+                  
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
     </ContentPage.Content>   
    
 </ContentPage>

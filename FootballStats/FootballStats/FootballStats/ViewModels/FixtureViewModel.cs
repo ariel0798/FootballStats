@@ -13,16 +13,15 @@ namespace FootballStats.ViewModels
     {
         public FixtureViewModel(IApiManager apiManager) : base(apiManager)
         {
-            //Task.Run(async () => await RunSafe(GetMock()));
-            GetMock();
+            //Task.Run(async () => await RunSafe(GetData()));
+           GetMock();
         }
 
         public List<Fixture> Fixtures { get; set; }
 
-       
+       public Fixture fixture { get; set; }
 
-
-       /* async Task GetData()
+        async Task GetData()
         {
             var footballResponse = await ApiManager.GetFixturesLive();
 
@@ -31,13 +30,13 @@ namespace FootballStats.ViewModels
                 var jsonResponse = await footballResponse.Content.ReadAsStringAsync();
                 var fixtures = await Task.Run(() => JsonConvert.DeserializeObject<Fixtures>(jsonResponse));
                
-                Fixture = fixtures.Api.Fixtures[0];
+                Fixtures = fixtures.Api.Fixtures;
             }
             else
             {
                 await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
             }
-        }*/
+        }
        void GetMock()
         {
             Fixtures = new List<Fixture>();
