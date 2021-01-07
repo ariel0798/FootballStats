@@ -17,8 +17,6 @@ namespace FootballStats.ViewModels
             GetMock();
         }
 
-        public Fixture Fixture { get; set; }
-
         public List<Fixture> Fixtures { get; set; }
 
        
@@ -42,7 +40,11 @@ namespace FootballStats.ViewModels
         }*/
        void GetMock()
         {
+            Fixtures = new List<Fixture>();
             var fixture = new Fixture();
+
+            fixture.AwayTeam = new AwayTeam();
+            fixture.HomeTeam = new HomeTeam();
 
             fixture.AwayTeam.TeamName = "Leicester";
             fixture.AwayTeam.Logo = "https://media.api-sports.io/football/teams/46.png";
@@ -52,7 +54,7 @@ namespace FootballStats.ViewModels
             fixture.GoalsAwayTeam = 2;
             fixture.GoalsHomeTeam = 1;
 
-            Fixture = fixture;
+            Fixtures.Add(fixture);
         }
 
     }

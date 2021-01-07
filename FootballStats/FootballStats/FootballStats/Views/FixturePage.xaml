@@ -25,10 +25,10 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Label Text="Hola"></Label>
-            <Label Text="{Binding Fixture.AwayTeam.TeamName}"></Label>
-            <Label Text="{Binding Fixture.Status}"></Label>
-            
+            <Label Text="Hola" Grid.Row="0"/>
+            <Label Text="{Binding Fixtures[0].AwayTeam.TeamName}" Grid.Row="1"/>
+            <Label Text="{Binding Fixtures[0].Status}" Grid.Row="2"/>
+
         </Grid>
     </ContentPage.Content>   
    
