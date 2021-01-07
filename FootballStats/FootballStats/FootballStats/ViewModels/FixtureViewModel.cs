@@ -55,6 +55,7 @@ namespace FootballStats.ViewModels
             fixture.GoalsHomeTeam = 1;
 
             Fixtures.Add(fixture);
+            Fixtures.Add(fixture);
         }
 
     }
