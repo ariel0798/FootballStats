@@ -3,46 +3,53 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FootballStats.Views.TeamPage"
              xmlns:prism="http://prismlibrary.com"
-             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
-             xmlns:data="clr-namespace:Syncfusion.DataSource;assembly=Syncfusion.DataSource.Portable" 
-             xmlns:local="clr-namespace:FootballStats.Helpers"
              prism:ViewModelLocator.AutowireViewModel="True"
-             Title="Team" BackgroundColor="White"             >
+             Title="Team" BackgroundColor="White"
+             x:Name="teamPage">
+    
     <ContentPage.Content>
-        <ScrollView>
+        <StackLayout Padding="50">
 
-            <Grid HorizontalOptions="Center" VerticalOptions="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+            <Label Text="Teams &#10;" TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalOptions="CenterAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding PruebaCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
 
-                <syncfusion:SfListView x:Name="listView" ItemsSource="{Binding TeamList}" ItemSize="150" Padding="40">
-
-                    <syncfusion:SfListView.Behaviors>
-                        <local:EventToCommandBehavior EventName="ItemTapped" Command="{Binding SelectionChangedCommand}"/>
-                    </syncfusion:SfListView.Behaviors>
-
-                    <syncfusion:SfListView.LayoutManager>
-                        <syncfusion:GridLayout SpanCount="2"/>
-                    </syncfusion:SfListView.LayoutManager>
-                    
-                    <syncfusion:SfListView.ItemTemplate>
+            <ScrollView>
+                <CollectionView ItemsSource="{Binding TeamList}"  SelectedItem="{Binding SelectedTeam}"
+                                ItemsLayout="VerticalGrid, 2" HorizontalOptions="End" >
+                    <CollectionView.ItemTemplate >
                         <DataTemplate>
-                            <StackLayout>
-                                <Frame BorderColor="Gray" CornerRadius="5" Padding="8" HasShadow="True" BackgroundColor="LightGray" Margin="20">
-                                    <Grid Padding="10">
-                                        <Image Source="{Binding Logo}" WidthRequest="200" HeightRequest="200"/>
-                                    </Grid>
-                                </Frame>
-                                <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="Center"/>
-                            </StackLayout>
-                        </DataTemplate>
-                    </syncfusion:SfListView.ItemTemplate>
-                    
-                </syncfusion:SfListView>
-            </Grid>            
 
-        </ScrollView>
+                            <Grid Padding="7">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Frame BorderColor="Gray"  Padding="8" HasShadow="True" BackgroundColor="LightGray"  Grid.Column="0" Grid.Row="0" 
+                                       HorizontalOptions="End" HeightRequest="100" WidthRequest="100">
+                                    <!--<Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.GoToTeamDetailCommand, Source={x:Reference teamPage}}" CommandParameter="{Binding TeamId}"/>
+                                    </Frame.GestureRecognizers>-->
+                                            <ImageButton Source="{Binding Logo}" WidthRequest="200" HeightRequest="200" 
+                                                         Command="{Binding BindingContext.GoToTeamDetailCommand}" 
+                                                         />
+
+
+
+                                </Frame>
+                                <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="Center"  Grid.Column="0" Grid.Row="1"/>
+                                
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

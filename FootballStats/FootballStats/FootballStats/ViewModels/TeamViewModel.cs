@@ -5,6 +5,8 @@ using Newtonsoft.Json;
 using Prism.Commands;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace FootballStats.ViewModels
 {
@@ -16,9 +18,41 @@ namespace FootballStats.ViewModels
             Task.Run(async () => await RunSafe(GetData()));
         }
 
-        public List <Team> TeamList { get; set; }
-        
-      
+        public List<Team> TeamList { get; set; }
+
+        public DelegateCommand PruebaCommand => new DelegateCommand(() => Prueba());
+        public DelegateCommand GoToTeamDetailCommand => new DelegateCommand(() =>
+            GoToTeamDetail());
+
+        Team selectedTeam;
+
+        public Team SelectedTeam
+        {
+            get { return selectedTeam; }
+            set
+            {
+                if (value != null)
+                {
+                    selectedTeam = value;
+                }
+            }
+
+        }
+
+        public void Prueba()
+        {
+            int a = 1;
+        }
+
+       
+
+        public void GoToTeamDetail( )
+        {
+            int go = 5;
+            string letsGo = "";
+        }
+
+
         async Task GetData()
         {
             var footballResponse = await ApiManager.GetTeamByLeagueId(2);
@@ -27,7 +61,6 @@ namespace FootballStats.ViewModels
             {
                 var jsonResponse = await footballResponse.Content.ReadAsStringAsync();
                 var teams = await Task.Run(() => JsonConvert.DeserializeObject<Teams>(jsonResponse));
-                var teamsContent = teams;
                 TeamList = teams.Api.Teams;
             }
             else
