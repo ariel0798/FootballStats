@@ -19,7 +19,7 @@ namespace FootballStats.ViewModels
         async Task GetPlayerData()
         {
             int playerId = 33;
-            var footballTeamResponse = await ApiManager.GetPlayerStatsById(playerId);
+            var footballTeamResponse = await ApiManager.GetPlayerStatsByPlayerId(playerId);
 
             if (footballTeamResponse.IsSuccessStatusCode)
             {
@@ -48,7 +48,7 @@ namespace FootballStats.ViewModels
 
         {
             int playerId = 33;
-            var footballResponse = await ApiManager.GetTrophiesById(playerId);
+            var footballResponse = await ApiManager.GetTrophiesByPlayerId(playerId);
 
             if (footballResponse.IsSuccessStatusCode)
             {

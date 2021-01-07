@@ -90,11 +90,11 @@ namespace FootballStats.Services
             return data;
         }
 
-        public async Task<HttpResponseMessage> GetTeamById(int id)
+        public async Task<HttpResponseMessage> GetTeamByTeamId(int id)
         {
             var cts = new CancellationTokenSource();
             var task = RemoteRequestAsync<HttpResponseMessage>
-                (footballApi.GetApi(Priority.UserInitiated).GetTeamById(id));
+                (footballApi.GetApi(Priority.UserInitiated).GetTeamByTeamId(id));
 
             runningTasks.Add(task.Id, cts);
 
@@ -110,11 +110,11 @@ namespace FootballStats.Services
 
             return await task;
         }
-        public async Task<HttpResponseMessage> GetPlayerStatsById(int playerId)
+        public async Task<HttpResponseMessage> GetPlayerStatsByPlayerId(int playerId)
         {
             var cts = new CancellationTokenSource();
             var task = RemoteRequestAsync<HttpResponseMessage>
-                (footballApi.GetApi(Priority.UserInitiated).GetPlayerStatsById(playerId));
+                (footballApi.GetApi(Priority.UserInitiated).GetPlayerStatsByPlayerId(playerId));
 
             runningTasks.Add(task.Id, cts);
 
@@ -130,27 +130,37 @@ namespace FootballStats.Services
 
             return await task;
         }
-        public async Task<HttpResponseMessage> GetTrophiesById(int playerId)
+        public async Task<HttpResponseMessage> GetTrophiesByPlayerId(int playerId)
         {
             var cts = new CancellationTokenSource();
             var task = RemoteRequestAsync<HttpResponseMessage>
-                (footballApi.GetApi(Priority.UserInitiated).GetTrophiesById(playerId));
+                (footballApi.GetApi(Priority.UserInitiated).GetTrophiesByPlayerId(playerId));
 
             runningTasks.Add(task.Id, cts);
 
             return await task;
         }
-        public async Task<HttpResponseMessage> GetLeaguesById(int teamId)
+        public async Task<HttpResponseMessage> GetLeaguesByTeamId(int teamId)
         {
             var cts = new CancellationTokenSource();
             var task = RemoteRequestAsync<HttpResponseMessage>
-                (footballApi.GetApi(Priority.UserInitiated).GetLeaguesById(teamId));
+                (footballApi.GetApi(Priority.UserInitiated).GetLeaguesByTeamId(teamId));
 
             runningTasks.Add(task.Id, cts);
 
             return await task;
         }
 
+        public async Task<HttpResponseMessage> GetPlayersStatsByTeamId(int teamId)
+        {
+            var cts = new CancellationTokenSource();
+            var task = RemoteRequestAsync<HttpResponseMessage>
+                (footballApi.GetApi(Priority.UserInitiated).GetPlayersStatsByTeamId(teamId));
+
+            runningTasks.Add(task.Id, cts);
+
+            return await task;
+        }
         public async Task<HttpResponseMessage> GetTeamStatisticsByLeagueIdAndTeamId(int leagueId, int teamId)
         {
             var cts = new CancellationTokenSource();

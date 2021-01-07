@@ -17,7 +17,7 @@ namespace FootballStats.ViewModels
         
         async Task GetData()
         {
-            var footballResponse = await ApiManager.GetTrophiesById(276);
+            var footballResponse = await ApiManager.GetTrophiesByPlayerId(276);
 
             if (footballResponse.IsSuccessStatusCode)
             {

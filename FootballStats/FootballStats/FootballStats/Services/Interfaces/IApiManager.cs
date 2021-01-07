@@ -5,18 +5,19 @@ namespace FootballStats.Services.Interfaces
 {
     public interface IApiManager
     {
-        Task<HttpResponseMessage> GetTeamById(int id);
+        Task<HttpResponseMessage> GetTeamByTeamId(int id);
 
         Task<HttpResponseMessage> GetTeamByLeagueId(int leagueId);
 
-        Task<HttpResponseMessage> GetPlayerStatsById(int playerId);
+        Task<HttpResponseMessage> GetPlayerStatsByPlayerId(int playerId);
 
         Task<HttpResponseMessage> GetFixturesLive();
 
-        Task<HttpResponseMessage> GetTrophiesById(int playerId);
+        Task<HttpResponseMessage> GetTrophiesByPlayerId(int playerId);
 
-        Task<HttpResponseMessage> GetLeaguesById(int teamId);
+        Task<HttpResponseMessage> GetLeaguesByTeamId(int teamId);
 
         Task<HttpResponseMessage> GetTeamStatisticsByLeagueIdAndTeamId(int leagueId, int teamId);
+        Task<HttpResponseMessage> GetPlayersStatsByTeamId(int teamId);
     }
 }

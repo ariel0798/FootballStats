@@ -1,4 +1,5 @@
-﻿using FootballStats.Models.Statistics;
+﻿using FootballStats.Models.Players;
+using FootballStats.Models.Statistics;
 using FootballStats.Models.Teams;
 using FootballStats.Services.Interfaces;
 using Newtonsoft.Json;
@@ -17,10 +18,12 @@ namespace FootballStats.ViewModels
         public Statistic Statistic { get; set; }
         public Team Team { get; set; }
         public List<TeamStats> TeamStatsList { get; set; }
+        public List<Player> PlayersList { get; set; }
+        private int teamId = 33;
 
         async Task GetTeamData() 
         {
-            var footballTeamResponse = await ApiManager.GetTeamById(33);
+            var footballTeamResponse = await ApiManager.GetTeamByTeamId(teamId);
 
             if (footballTeamResponse.IsSuccessStatusCode)
             {
@@ -47,7 +50,7 @@ namespace FootballStats.ViewModels
 
         async Task GetStatistic()
         {
-            var footballStatsResponse = await ApiManager.GetTeamStatisticsByLeagueIdAndTeamId(1,33);
+            var footballStatsResponse = await ApiManager.GetTeamStatisticsByLeagueIdAndTeamId(2, teamId);
             
 
             if (footballStatsResponse.IsSuccessStatusCode)
@@ -70,7 +73,36 @@ namespace FootballStats.ViewModels
             }
             else
                 await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
+            await RunSafe(GetPlayers());
         }
+
+        async Task GetPlayers()
+        {
+            
+            var footballStatsResponse = await ApiManager.GetPlayersStatsByTeamId(teamId);
+
+
+            if (footballStatsResponse.IsSuccessStatusCode)
+            {
+                var jsonResponse = await footballStatsResponse.Content.ReadAsStringAsync();
+                var players = await Task.Run(() => JsonConvert.DeserializeObject<Players>(jsonResponse));
+
+                if (players != null)
+                {
+                    if (players.Api.Results >= 1)
+                    {
+                        PlayersList = players.Api.Players;
+                    }
+                    else
+                        await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
+                }
+                else
+                    await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
+            }
+            else
+                await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
+        }
+
 
         private void SetTeamStats(Statistic statistic) 
         { 
