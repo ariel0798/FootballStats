@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+             x:Class="FootballStats.Views.TeamStatsPage"
+             Title="Team statistic" >
+    <ContentPage.Content >
+        <ScrollView>
+            <Grid VerticalOptions="Start"
+              HorizontalOptions="Center"
+              Padding="20"
+                  RowSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+
+                    <Label Text="{Binding Team.Name}"  Grid.Column="0" Grid.Row="0" FontSize="Large"/>
+
+                    <Image Source="{Binding Team.Logo}"  Grid.Column="0" Grid.Row="1"/>
+
+                <Frame BorderColor="Gray" CornerRadius="5" Padding="8" HasShadow="True" Grid.Column="0" Grid.Row="2"  BackgroundColor="White" 
+                       HeightRequest="240"  HorizontalOptions="Center" VerticalOptions="Center" Margin="55">
+                    <syncfusion:SfDataGrid ItemsSource="{Binding TeamStatsList}" >
+                    </syncfusion:SfDataGrid>
+                </Frame>
+
+
+                <Label Text="Players"  Grid.Column="0" Grid.Row="3" FontSize="Large" HorizontalOptions="Center"/>
+
+                <CollectionView ItemsSource="{Binding PlayersList}" 
+                                ItemsLayout="VerticalGrid, 3" HorizontalOptions="End"  Grid.Column="0" Grid.Row="4">
+                    <CollectionView.ItemTemplate >
+                        <DataTemplate>
+
+                            <Grid Padding="7">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Frame BorderColor="Gray"  Padding="8" HasShadow="True" BackgroundColor="LightGray"  Grid.Column="0" Grid.Row="0" 
+                                       HorizontalOptions="End" HeightRequest="75" WidthRequest="75">
+                                    
+                                    <Image Source="UnknownPlayer.jpg" WidthRequest="100" HeightRequest="100" />
+                                </Frame>
+                                <Label Text="{Binding PlayerName}" TextColor="Black" HorizontalOptions="Center"  Grid.Column="0" Grid.Row="1"/>
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

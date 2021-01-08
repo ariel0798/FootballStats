@@ -5,5 +5,24 @@
              x:Class="FootballStats.App">
     <Application.Resources>
 
+        <Style x:Key="TableTitleRowLabel" TargetType="Label">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        
+        <Style x:Key="TableRowLabel" TargetType="Label">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+
+        <Style x:Key="BoxCell" TargetType="BoxView">
+            <Setter Property="WidthRequest" Value="1"/>
+            <Setter Property="BackgroundColor" Value="Black"/>
+            <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+            <Setter Property="VerticalOptions" Value="EndAndExpand"/>
+        </Style>
     </Application.Resources>
 </prism:PrismApplication>
