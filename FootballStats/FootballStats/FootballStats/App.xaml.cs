@@ -35,18 +35,26 @@ namespace FootballStats
             containerRegistry.RegisterForNavigation<TrophyPage, TrophyViewModel>(NavigationConstants.TrophyPage);
             containerRegistry.RegisterForNavigation<LeaguePage, LeagueViewModel>(NavigationConstants.LeaguePage);
             containerRegistry.RegisterForNavigation<HomePage,HomePageViewModel>(NavigationConstants.HomePage);
+<<<<<<< HEAD
             containerRegistry.RegisterForNavigation<TeamStatsPage,TeamStatsViewModel>(NavigationConstants.TeamStatsPage);
             containerRegistry.RegisterForNavigation<PlayerPage,PlayerViewModel>(NavigationConstants.PlayerPage);
 
+=======
+            containerRegistry.RegisterForNavigation<FixturePage, FixtureViewModel>(NavigationConstants.FixturePage);
+>>>>>>> HomeFeauture
 
             containerRegistry.RegisterInstance<IApiManager>(new ApiManager(new ApiService<IFootballApi>(Config.FootballApiUrl)));
         }
 
         protected override async void OnInitialized()
         {
+<<<<<<< HEAD
 
             await NavigationService.NavigateAsync(new Uri($"/{NavigationConstants.HomePage}"));
 
+=======
+            await NavigationService.NavigateAsync(new Uri($"/{NavigationConstants.FixturePage}"));
+>>>>>>> HomeFeauture
         }
     }
 }
