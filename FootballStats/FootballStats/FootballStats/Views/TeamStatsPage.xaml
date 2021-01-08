@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
              x:Class="FootballStats.Views.TeamStatsPage"
              Title="Team statistic" >
     <ContentPage.Content >
@@ -27,8 +28,10 @@
 
                     <Image Source="{Binding Team.Logo}"  Grid.Column="0" Grid.Row="1"/>
 
-                <Frame BorderColor="Gray" CornerRadius="5" Padding="8" HasShadow="True" Grid.Column="0" Grid.Row="2"  BackgroundColor="White">
-                  
+                <Frame BorderColor="Gray" CornerRadius="5" Padding="8" HasShadow="True" Grid.Column="0" Grid.Row="2"  BackgroundColor="White" 
+                       HeightRequest="240"  HorizontalOptions="Center" VerticalOptions="Center" Margin="55">
+                    <syncfusion:SfDataGrid ItemsSource="{Binding TeamStatsList}" >
+                    </syncfusion:SfDataGrid>
                 </Frame>
 
 

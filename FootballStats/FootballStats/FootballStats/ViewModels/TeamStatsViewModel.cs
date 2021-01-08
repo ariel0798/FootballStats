@@ -116,28 +116,33 @@ namespace FootballStats.ViewModels
 
             TeamStatsList.Add(teamStats);
 
-            teamStats.Name = "Loses";
-            teamStats.Home = statistic.Matchs.Loses.Home;
-            teamStats.Away = statistic.Matchs.Loses.Away;
-            teamStats.Total = statistic.Matchs.Loses.Total;
-
-            TeamStatsList.Add(teamStats);
+            var teamStats2 = new TeamStats();
 
 
-            teamStats.Name = "Draws";
-            teamStats.Home = statistic.Matchs.Draws.Home;
-            teamStats.Away = statistic.Matchs.Draws.Away;
-            teamStats.Total = statistic.Matchs.Draws.Total;
+            teamStats2.Name = "Loses";
+            teamStats2.Home = statistic.Matchs.Loses.Home;
+            teamStats2.Away = statistic.Matchs.Loses.Away;
+            teamStats2.Total = statistic.Matchs.Loses.Total;
 
-            TeamStatsList.Add(teamStats);
+            TeamStatsList.Add(teamStats2);
 
+            var teamStats3 = new TeamStats();
 
-            teamStats.Name = "Matchs played";
-            teamStats.Home = statistic.Matchs.MatchsPlayed.Home;
-            teamStats.Away = statistic.Matchs.MatchsPlayed.Away;
-            teamStats.Total = statistic.Matchs.MatchsPlayed.Total;
+            teamStats3.Name = "Draws";
+            teamStats3.Home = statistic.Matchs.Draws.Home;
+            teamStats3.Away = statistic.Matchs.Draws.Away;
+            teamStats3.Total = statistic.Matchs.Draws.Total;
 
-            TeamStatsList.Add(teamStats);
+            TeamStatsList.Add(teamStats3);
+
+            var teamStats4 = new TeamStats();
+
+            teamStats4.Name = "Matchs played";
+            teamStats4.Home = statistic.Matchs.MatchsPlayed.Home;
+            teamStats4.Away = statistic.Matchs.MatchsPlayed.Away;
+            teamStats4.Total = statistic.Matchs.MatchsPlayed.Total;
+
+            TeamStatsList.Add(teamStats4);
         }
     }
 
