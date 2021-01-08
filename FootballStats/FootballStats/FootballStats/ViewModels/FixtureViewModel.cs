@@ -44,17 +44,27 @@ namespace FootballStats.ViewModels
 
             fixture.AwayTeam = new AwayTeam();
             fixture.HomeTeam = new HomeTeam();
+            fixture.Score = new Score();
 
-            fixture.AwayTeam.TeamName = "Leicester";
             fixture.AwayTeam.Logo = "https://media.api-sports.io/football/teams/46.png";
-            fixture.HomeTeam.TeamName = "Manchester United";
-            fixture.HomeTeam.Logo = "https://media.api-sports.io/football/teams/46.png";
-            fixture.Status = "Match Finished";
+            fixture.HomeTeam.Logo = "https://media.api-sports.io/football/teams/33.png";
             fixture.GoalsAwayTeam = 2;
             fixture.GoalsHomeTeam = 1;
+            fixture.Score.Fulltime = "2-1";
 
             Fixtures.Add(fixture);
-            Fixtures.Add(fixture);
+
+            var fixture2 = new Fixture();
+            fixture2.AwayTeam = new AwayTeam();
+            fixture2.HomeTeam = new HomeTeam();
+            fixture2.Score = new Score();
+
+            fixture2.AwayTeam.Logo = "https://media.api-sports.io/football/teams/45.png";
+            fixture2.HomeTeam.Logo = "https://media.api-sports.io/football/teams/34.png";
+            fixture2.GoalsAwayTeam = 3;
+            fixture2.GoalsHomeTeam = 0;
+            fixture2.Score.Fulltime = "3-0";
+            Fixtures.Add(fixture2);
         }
 
     }

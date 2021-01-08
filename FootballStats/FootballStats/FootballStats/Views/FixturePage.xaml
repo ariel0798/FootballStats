@@ -5,30 +5,35 @@
              xmlns:local ="clr-namespace:FootballStats"
              Title="Fixtures">
     <ContentPage.Content>
-        <CollectionView ItemsSource="{Binding Fixtures}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-
-                    <Grid Padding="7">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                          
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Text="{HomeTeam.Name}" Grid.Column="1" Grid.Row="0"></Label>
-                        <Image Source="{HomeTeam.Logo}" Grid.Column="1" Grid.Row="0"></Image>
-                        <Label Text="{GoalsHomeTeam}" Grid.Column="1" Grid.Row="0"></Label>
-                        <Label Text="{AwayTeam.Name}" Grid.Column="2" Grid.Row="0"></Label>
-                        <Image Source="{AwayTeam.Logo}" Grid.Column="2" Grid.Row="0"></Image>
-                        <Label Text="{GoalsAwayTeam}"  Grid.Column="2" Grid.Row="0"></Label>
-                    </Grid>
-                  
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        
+        <ScrollView Padding="5">
+            <CollectionView ItemsSource="{Binding Fixtures}" >
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                           ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" CornerRadius="5" Padding="-5" HasShadow="True">
+                            <Grid Padding="20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding HomeTeam.Logo}" Grid.Column="0" Grid.Row="0"/>
+                                <Frame HasShadow="True" Grid.Column="1" BorderColor="DarkGray" Grid.Row="0" >
+                                    <Label Text="{Binding Score.Fulltime}" HorizontalOptions="Center"  FontSize="Large" TextColor="Black"/>
+                                </Frame>
+                                <Image Source="{Binding AwayTeam.Logo}" Grid.Column="2" Grid.Row="0" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
     </ContentPage.Content>   
    
 </ContentPage>
