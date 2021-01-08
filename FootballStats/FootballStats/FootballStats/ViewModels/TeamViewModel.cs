@@ -32,7 +32,7 @@ namespace FootballStats.ViewModels
 
         async Task GetData()
         {
-            var footballResponse = await ApiManager.GetTeamByTeamId(33);
+            var footballResponse = await ApiManager.GetTeamByLeagueId(2);
             if (footballResponse.IsSuccessStatusCode)
             {
                 var jsonResponse = await footballResponse.Content.ReadAsStringAsync();

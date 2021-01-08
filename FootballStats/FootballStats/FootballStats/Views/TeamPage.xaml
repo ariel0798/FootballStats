@@ -36,12 +36,7 @@
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding BindingContext.GoToTeamDetailCommand, Source={x:Reference teamPage}}" CommandParameter="{Binding}"/>
                                     </Frame.GestureRecognizers>
-                                            <Image Source="{Binding Logo}" WidthRequest="200" HeightRequest="200" 
-                                                        
-                                                         />
-
-
-
+                                    <Image Source="{Binding Logo}" WidthRequest="200" HeightRequest="200"/>
                                 </Frame>
                                 <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="Center"  Grid.Column="0" Grid.Row="1"/>
                                 

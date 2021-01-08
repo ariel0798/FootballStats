@@ -15,7 +15,7 @@
     <TabbedPage.Children>
         <views:FixturePage/>
         <views:TeamPage/>
-        <views:TrophyPage/> 
+        <views:AboutPage/> 
     </TabbedPage.Children>
     
   
