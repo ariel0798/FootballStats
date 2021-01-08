@@ -21,32 +21,12 @@ namespace FootballStats.ViewModels
         public List<Team> TeamList { get; set; }
 
         public DelegateCommand PruebaCommand => new DelegateCommand(() => Prueba());
-        public DelegateCommand GoToTeamDetailCommand => new DelegateCommand(() =>
-            GoToTeamDetail());
-
-        Team selectedTeam;
-
-        public Team SelectedTeam
-        {
-            get { return selectedTeam; }
-            set
-            {
-                if (value != null)
-                {
-                    selectedTeam = value;
-                }
-            }
-
-        }
-
-        public void Prueba()
-        {
-            int a = 1;
-        }
+        public DelegateCommand<Team> GoToTeamDetailCommand => new DelegateCommand<Team>((team) =>
+            GoToTeamDetail(team));
 
        
 
-        public void GoToTeamDetail( )
+        public void GoToTeamDetail(Team team)
         {
             int go = 5;
             string letsGo = "";

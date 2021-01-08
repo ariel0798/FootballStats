@@ -33,9 +33,9 @@
 
                                 <Frame BorderColor="Gray"  Padding="8" HasShadow="True" BackgroundColor="LightGray"  Grid.Column="0" Grid.Row="0" 
                                        HorizontalOptions="End" HeightRequest="100" WidthRequest="100">
-                                    <!--<Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding BindingContext.GoToTeamDetailCommand, Source={x:Reference teamPage}}" CommandParameter="{Binding TeamId}"/>
-                                    </Frame.GestureRecognizers>-->
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.GoToTeamDetailCommand, Source={x:Reference teamPage}}" CommandParameter="{Binding}"/>
+                                    </Frame.GestureRecognizers>
                                             <Image Source="{Binding Logo}" WidthRequest="200" HeightRequest="200" 
                                                         
                                                          />
