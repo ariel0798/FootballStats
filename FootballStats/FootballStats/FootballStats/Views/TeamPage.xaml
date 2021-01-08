@@ -5,19 +5,18 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              Title="Team" BackgroundColor="White"
+             IconImageSource="Teams"
              x:Name="teamPage">
     
     <ContentPage.Content>
         <StackLayout Padding="50">
 
-            <Label Text="Teams &#10;" TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalOptions="CenterAndExpand">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding PruebaCommand}" />
-                </Label.GestureRecognizers>
-            </Label>
+            <!--<Label Text="Teams &#10;" Style="{StaticResource TitlePage}"/>-->
+            <Label Text="Teams &#10;" />
+            
 
             <ScrollView>
-                <CollectionView ItemsSource="{Binding TeamList}"  SelectedItem="{Binding SelectedTeam}"
+                <CollectionView ItemsSource="{Binding TeamList}"  
                                 ItemsLayout="VerticalGrid, 2" HorizontalOptions="End" >
                     <CollectionView.ItemTemplate >
                         <DataTemplate>
@@ -34,7 +33,7 @@
                                 <Frame BorderColor="Gray"  Padding="8" HasShadow="True" BackgroundColor="LightGray"  Grid.Column="0" Grid.Row="0" 
                                        HorizontalOptions="End" HeightRequest="100" WidthRequest="100">
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding BindingContext.GoToTeamDetailCommand, Source={x:Reference teamPage}}" CommandParameter="{Binding}"/>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.NavigateToTeamStatCommand, Source={x:Reference teamPage}}" CommandParameter="{Binding}"/>
                                     </Frame.GestureRecognizers>
                                     <Image Source="{Binding Logo}" WidthRequest="200" HeightRequest="200"/>
                                 </Frame>

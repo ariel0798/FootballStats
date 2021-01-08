@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
              x:Class="FootballStats.Views.TeamStatsPage"
-             Title="Team statistic" >
+             Title="Team statistic" BackgroundColor="White"
+             x:Name ="teamStatsPage">
     <ContentPage.Content >
         <ScrollView>
             <Grid VerticalOptions="Start"
@@ -24,18 +25,19 @@
 
                 </Grid.RowDefinitions>
 
-                    <Label Text="{Binding Team.Name}"  Grid.Column="0" Grid.Row="0" FontSize="Large"/>
+                <Label Text="{Binding Team.Name}" Style="{StaticResource TitlePage}"  Grid.Column="0" Grid.Row="0"/>
 
-                    <Image Source="{Binding Team.Logo}"  Grid.Column="0" Grid.Row="1"/>
+                <Image Source="{Binding Team.Logo}" Style="{StaticResource TeamStatsImages}"  Grid.Column="0" Grid.Row="1"/>
 
                 <Frame BorderColor="Gray" CornerRadius="5" Padding="8" HasShadow="True" Grid.Column="0" Grid.Row="2"  BackgroundColor="White" 
                        HeightRequest="240"  HorizontalOptions="Center" VerticalOptions="Center" Margin="55">
-                    <syncfusion:SfDataGrid ItemsSource="{Binding TeamStatsList}" >
+
+                    <syncfusion:SfDataGrid ItemsSource="{Binding TeamStatsList}">
                     </syncfusion:SfDataGrid>
                 </Frame>
 
 
-                <Label Text="Players"  Grid.Column="0" Grid.Row="3" FontSize="Large" HorizontalOptions="Center"/>
+                <Label Text="Players" Style="{StaticResource SecondTitlePage}"   Grid.Column="0" Grid.Row="3" />
 
                 <CollectionView ItemsSource="{Binding PlayersList}" 
                                 ItemsLayout="VerticalGrid, 3" HorizontalOptions="End"  Grid.Column="0" Grid.Row="4">
@@ -53,14 +55,30 @@
 
                                 <Frame BorderColor="Gray"  Padding="8" HasShadow="True" BackgroundColor="LightGray"  Grid.Column="0" Grid.Row="0" 
                                        HorizontalOptions="End" HeightRequest="75" WidthRequest="75">
-                                    
-                                    <Image Source="UnknownPlayer.jpg" WidthRequest="100" HeightRequest="100" />
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.NavigateToPlayerCommand, Source={x:Reference teamStatsPage}}" CommandParameter="{Binding}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Image Source="{Binding Photo}" Style="{StaticResource TeamStatsImages}"  />
                                 </Frame>
                                 <Label Text="{Binding PlayerName}" TextColor="Black" HorizontalOptions="Center"  Grid.Column="0" Grid.Row="1"/>
 
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="Start">
+                                <Image Source="RunEmpty.gif" HorizontalOptions="Fill" IsAnimationPlaying="True"/>
+                                <Label Text="No players result"
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                            </StackLayout>
+                        </ContentView>
+                    </CollectionView.EmptyView>
                 </CollectionView>
             </Grid>
         </ScrollView>

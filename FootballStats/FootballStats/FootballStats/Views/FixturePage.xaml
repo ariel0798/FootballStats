@@ -4,15 +4,20 @@
              x:Class="FootballStats.Views.FixturePage"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             Title="Fixtures">
+             Title="Lives" IconImageSource="Home">
     <ContentPage.Content>
         <ScrollView Padding="5">
-            <CollectionView ItemsSource="{Binding Fixtures}" >
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical"
-                           ItemSpacing="10" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
+            <StackLayout>
+
+                <!--<Label Text="&#10; Live games &#10;" Style="{StaticResource TitlePage}"/>-->
+                <Label Text="&#10; Live games &#10;" />
+                
+                <CollectionView ItemsSource="{Binding Fixtures}" >
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                               ItemSpacing="10" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame BorderColor="Gray" CornerRadius="5" Padding="-5" HasShadow="True">
                             <Grid Padding="20">
@@ -34,6 +39,7 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>   
    

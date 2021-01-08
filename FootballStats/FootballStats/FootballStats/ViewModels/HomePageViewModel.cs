@@ -1,10 +1,4 @@
-﻿using Acr.UserDialogs;
-using FootballStats.Models.Fixtures;
-using FootballStats.Services.Interfaces;
-using Newtonsoft.Json;
-using Prism.Commands;
-using System.Threading.Tasks;
-
+﻿using FootballStats.Services.Interfaces;
 namespace FootballStats.ViewModels
 {
     public class HomePageViewModel : BaseViewModel

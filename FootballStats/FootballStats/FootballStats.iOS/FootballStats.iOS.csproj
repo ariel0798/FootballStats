@@ -140,6 +140,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\UnknownPlayer.jpg" />
+    <BundleResource Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\More.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Teams.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RunEmpty.gif" />
   </ItemGroup>
 </Project>

@@ -1,10 +1,7 @@
 ﻿using FootballStats.Models.Fixtures;
 using FootballStats.Services.Interfaces;
 using Newtonsoft.Json;
-using Prism.Commands;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FootballStats.ViewModels
@@ -19,8 +16,7 @@ namespace FootballStats.ViewModels
 
         public List<Fixture> Fixtures { get; set; }
 
-       public Fixture fixture { get; set; }
-
+        /*
         async Task GetData()
         {
             var footballResponse = await ApiManager.GetFixturesLive();
@@ -36,15 +32,16 @@ namespace FootballStats.ViewModels
             {
                 await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
             }
-        }
+        }*/
        void GetMock()
         {
             Fixtures = new List<Fixture>();
-            var fixture = new Fixture();
-
-            fixture.AwayTeam = new AwayTeam();
-            fixture.HomeTeam = new HomeTeam();
-            fixture.Score = new Score();
+            var fixture = new Fixture
+            {
+                AwayTeam = new AwayTeam(),
+                HomeTeam = new HomeTeam(),
+                Score = new Score()
+            };
 
             fixture.AwayTeam.Logo = "https://media.api-sports.io/football/teams/46.png";
             fixture.HomeTeam.Logo = "https://media.api-sports.io/football/teams/33.png";
@@ -54,10 +51,12 @@ namespace FootballStats.ViewModels
 
             Fixtures.Add(fixture);
 
-            var fixture2 = new Fixture();
-            fixture2.AwayTeam = new AwayTeam();
-            fixture2.HomeTeam = new HomeTeam();
-            fixture2.Score = new Score();
+            var fixture2 = new Fixture
+            {
+                AwayTeam = new AwayTeam(),
+                HomeTeam = new HomeTeam(),
+                Score = new Score()
+            };
 
             fixture2.AwayTeam.Logo = "https://media.api-sports.io/football/teams/45.png";
             fixture2.HomeTeam.Logo = "https://media.api-sports.io/football/teams/34.png";

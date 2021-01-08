@@ -3,6 +3,7 @@ namespace FootballStats
 {
     public static class NavigationConstants
     {
+        public const string NagivationPage = "NagivationPage";
         public const string TeamPage = "TeamPage";
         public const string HomePage = "HomePage";
         public const string TeamStatsPage = "TeamStatsPage";

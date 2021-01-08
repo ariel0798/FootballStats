@@ -4,35 +4,45 @@ using Newtonsoft.Json;
 using Prism.Commands;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Prism.Navigation;
 
 namespace FootballStats.ViewModels
 {
     public class TeamViewModel : BaseViewModel
     {
-        public TeamViewModel( IApiManager apiManager)
+        readonly INavigationService navigationService;
+        public TeamViewModel( IApiManager apiManager, INavigationService navigationService)
             :base(apiManager)
         {
+            this.navigationService = navigationService;
+
+            NavigateToTeamStatCommand = new DelegateCommand<Team>( async (team) => await NavigateToTeamStat(team));
+
             Task.Run(async () => await RunSafe(GetData()));
         }
 
         public List<Team> TeamList { get; set; }
 
        
-        public DelegateCommand<Team> GoToTeamDetailCommand => new DelegateCommand<Team>((team) =>
-            GoToTeamDetail(team));
+        public DelegateCommand<Team> NavigateToTeamStatCommand { get; }
+        private int leagueId = 2;
 
-       
-
-        public void GoToTeamDetail(Team team)
+        async Task NavigateToTeamStat(Team team)
         {
-            int go = 5;
-            string letsGo = "";
+            var parameters = new NavigationParameters
+            {
+                { "teamId", team.TeamId },
+                { "name", team.Name },
+                { "logo", team.Logo },
+                { "leagueId", leagueId }
+            };
+            await navigationService.NavigateAsync(NavigationConstants.TeamStatsPage,parameters);
         }
 
 
         async Task GetData()
         {
-            var footballResponse = await ApiManager.GetTeamByLeagueId(2);
+            var footballResponse = await ApiManager.GetTeamByLeagueId(leagueId);
             if (footballResponse.IsSuccessStatusCode)
             {
                 var jsonResponse = await footballResponse.Content.ReadAsStringAsync();

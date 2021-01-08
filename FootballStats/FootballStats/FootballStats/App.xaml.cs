@@ -5,7 +5,7 @@ using FootballStats.Views;
 using Prism;
 using Prism.Ioc;
 using Prism.Unity;
-using System;
+using Xamarin.Forms;
 
 namespace FootballStats
 {
@@ -31,6 +31,7 @@ namespace FootballStats
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<NavigationPage>(NavigationConstants.NagivationPage);
             containerRegistry.RegisterForNavigation<TeamPage,TeamViewModel>(NavigationConstants.TeamPage);
             containerRegistry.RegisterForNavigation<HomePage,HomePageViewModel>(NavigationConstants.HomePage);
             containerRegistry.RegisterForNavigation<TeamStatsPage,TeamStatsViewModel>(NavigationConstants.TeamStatsPage);
@@ -43,7 +44,7 @@ namespace FootballStats
 
         protected override async void OnInitialized()
         {
-            await NavigationService.NavigateAsync(new Uri($"/{NavigationConstants.HomePage}"));
+            await NavigationService.NavigateAsync($"{NavigationConstants.NagivationPage}/{NavigationConstants.HomePage}");
 
         }
     }

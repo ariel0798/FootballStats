@@ -23,11 +23,11 @@
 
                 </Grid.RowDefinitions>
 
-                <Label Text="{Binding Player.PlayerName}"  Grid.Column="0" Grid.Row="0" FontSize="Large"  Grid.ColumnSpan="2"/>
+                <Label Text="{Binding Player.PlayerName}" Style="{StaticResource TitlePage}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"/>
 
-                <Image Source="UnknownPlayer.jpg"  Grid.Column="0" Grid.Row="1" WidthRequest="60" HeightRequest="60"/>
-                
-                <Frame BorderColor="Gray" Padding="8" HasShadow="True"  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2 " WidthRequest="500">
+                <Image Source="{Binding Player.Photo}" Style="{StaticResource AverageImage}" Grid.Column="0" Grid.Row="1" />
+
+                <Frame BorderColor="Gray" Padding="8" HasShadow="True"  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand">
                     
                     <Grid HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" RowSpacing="0">
                         <Grid.ColumnDefinitions>
@@ -45,30 +45,30 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        
-                        <Label Text="Name: "  Grid.Column="0" Grid.Row="0"  TextColor="Black" FontSize="Small"/>
-                        <Label Text="{Binding Player.PlayerName}"  Grid.Column="1"  Grid.Row="0" /> 
 
-                        <Label Text="Born date: "  Grid.Column="0" Grid.Row="1" />
-                        <Label Text="{Binding Player.BirthDate}"  Grid.Column="1"  Grid.Row="1" />
+                        <Label Text="Name: "  Style="{StaticResource FramePlayerLetter}" Grid.Column="0" Grid.Row="0"/>
+                        <Label Text="{Binding Player.PlayerName}"  Style="{StaticResource FramePlayerLetter}" Grid.Column="1"  Grid.Row="0" />
 
-                        <Label Text="Height: "  Grid.Column="0" Grid.Row="2" />
-                        <Label Text="{Binding Player.Height}"  Grid.Column="1"  Grid.Row="2" />
+                        <Label Text="Born date: "  Style="{StaticResource FramePlayerLetter}" Grid.Column="0" Grid.Row="1" />
+                        <Label Text="{Binding Player.BirthDate}"  Style="{StaticResource FramePlayerLetter}" Grid.Column="1"  Grid.Row="1" />
 
-                        <Label Text="Weight: "  Grid.Column="0" Grid.Row="3" />
-                        <Label Text="{Binding Player.Weight}"  Grid.Column="1"  Grid.Row="3" />
+                        <Label Text="Height: "  Style="{StaticResource FramePlayerLetter}" Grid.Column="0" Grid.Row="2" />
+                        <Label Text="{Binding Player.Height}"  Style="{StaticResource FramePlayerLetter}" Grid.Column="1"  Grid.Row="2" />
 
-                        <Label Text="Position: "  Grid.Column="0" Grid.Row="4" />
-                        <Label Text="{Binding Player.Position}"  Grid.Column="1"  Grid.Row="4" />
+                        <Label Text="Weight: "  Style="{StaticResource FramePlayerLetter}" Grid.Column="0" Grid.Row="3" />
+                        <Label Text="{Binding Player.Weight}"  Style="{StaticResource FramePlayerLetter}" Grid.Column="1"  Grid.Row="3" />
 
-                        <Label Text="Nationality: "  Grid.Column="0" Grid.Row="5" />
-                        <Label Text="{Binding Player.Nationality}"  Grid.Column="1"  Grid.Row="5" /> 
+                        <Label Text="Position: "  Style="{StaticResource FramePlayerLetter}" Grid.Column="0" Grid.Row="4" />
+                        <Label Text="{Binding Player.Position}"  Style="{StaticResource FramePlayerLetter}" Grid.Column="1"  Grid.Row="4" />
 
-                        <Label Text="Team name: "  Grid.Column="0" Grid.Row="6" />
-                        <Label Text="{Binding Player.TeamName}"  Grid.Column="1"  Grid.Row="6" />
+                        <Label Text="Nationality: "  Style="{StaticResource FramePlayerLetter}" Grid.Column="0" Grid.Row="5" />
+                        <Label Text="{Binding Player.Nationality}"  Style="{StaticResource FramePlayerLetter}" Grid.Column="1"  Grid.Row="5" />
 
-                        <Label Text="Age: "  Grid.Column="0" Grid.Row="7" />
-                        <Label Text="{Binding Player.Age}"  Grid.Column="1"  Grid.Row="7" />
+                        <Label Text="Team name: "  Style="{StaticResource FramePlayerLetter}" Grid.Column="0" Grid.Row="6" />
+                        <Label Text="{Binding Player.TeamName}"  Style="{StaticResource FramePlayerLetter}" Grid.Column="1"  Grid.Row="6" />
+
+                        <Label Text="Age: "  Style="{StaticResource FramePlayerLetter}" Grid.Column="0" Grid.Row="7" />
+                        <Label Text="{Binding Player.Age}"  Style="{StaticResource FramePlayerLetter}" Grid.Column="1"  Grid.Row="7" />
                     </Grid>
                 </Frame>
 
@@ -88,24 +88,24 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
-                        <Label Text="Statistics of 2020"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1"/>
+                        <Label Text="Statistics of 2020" Style="{StaticResource FramePlayerLetter}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1"/>
 
-                        <Label Text="Goals: "  Grid.Column="0" Grid.Row="1" />
-                        <Label Text="{Binding Player.Goals.Total}"  Grid.Column="1" Grid.Row="1" />
+                        <Label Text="Goals: " Style="{StaticResource FramePlayerLetter}" Grid.Column="0" Grid.Row="1" />
+                        <Label Text="{Binding Player.Goals.Total}" Style="{StaticResource FramePlayerLetter}"  Grid.Column="1" Grid.Row="1" />
 
-                        <Label Text="Shots: "  Grid.Column="0" Grid.Row="2" />
-                        <Label Text="{Binding Player.Shots.Total}"  Grid.Column="1"  Grid.Row="2" />
+                        <Label Text="Shots: " Style="{StaticResource FramePlayerLetter}" Grid.Column="0" Grid.Row="2" />
+                        <Label Text="{Binding Player.Shots.Total}" Style="{StaticResource FramePlayerLetter}"  Grid.Column="1"  Grid.Row="2" />
 
-                        <Label Text="Red cards: "  Grid.Column="0" Grid.Row="3" />
-                        <Label Text="{Binding Player.Cards.Red}"  Grid.Column="1"  Grid.Row="3" />
+                        <Label Text="Red cards: " Style="{StaticResource FramePlayerLetter}" Grid.Column="0" Grid.Row="3" />
+                        <Label Text="{Binding Player.Cards.Red}" Style="{StaticResource FramePlayerLetter}"  Grid.Column="1"  Grid.Row="3" />
 
-                        <Label Text="Yellow cards: "  Grid.Column="0" Grid.Row="4" />
-                        <Label Text="{Binding Player.Cards.Yellow}"  Grid.Column="1"  Grid.Row="4" />
+                        <Label Text="Yellow cards: " Style="{StaticResource FramePlayerLetter}" Grid.Column="0" Grid.Row="4" />
+                        <Label Text="{Binding Player.Cards.Yellow}" Style="{StaticResource FramePlayerLetter}" Grid.Column="1"  Grid.Row="4" />
 
                     </Grid>
                 </Frame>
-                
-                <Label Text="Trophies"   FontSize="Large" Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="1"/>
+
+                <!--<Label Text="Trophies" Style="{StaticResource SecondTitlePage}"  FontSize="Large" Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="1"/>-->
 
                 
 
