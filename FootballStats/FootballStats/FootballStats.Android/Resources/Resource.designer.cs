@@ -2757,11 +2757,6 @@ namespace FootballStats.Droid
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.inputlayout_togglecollapseicon = global::FootballStats.Droid.Resource.Drawable.inputlayout_togglecollapseicon;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.inputlayout_togglevisibleicon = global::FootballStats.Droid.Resource.Drawable.inputlayout_togglevisibleicon;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.clear_button_icon = global::FootballStats.Droid.Resource.Drawable.clear_button_icon;
-<<<<<<< HEAD
-			global::Syncfusion.ListView.XForms.Android.Resource.String.ApplicationName = global::FootballStats.Droid.Resource.String.ApplicationName;
-			global::Syncfusion.ListView.XForms.Android.Resource.String.Hello = global::FootballStats.Droid.Resource.String.Hello;
-			global::Syncfusion.ListView.XForms.Android.Resource.String.Load_More = global::FootballStats.Droid.Resource.String.Load_More;
-=======
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Animation.abc_fade_in = global::FootballStats.Droid.Resource.Animation.abc_fade_in;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Animation.abc_fade_out = global::FootballStats.Droid.Resource.Animation.abc_fade_out;
 			global::Syncfusion.XForms.Android.ComboBox.Resource.Animation.abc_grow_fade_in_from_bottom = global::FootballStats.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -5490,6 +5485,9 @@ namespace FootballStats.Droid
 			global::Syncfusion.SfDataGrid.XForms.Droid.Resource.String.cancel_drop = global::FootballStats.Droid.Resource.String.cancel_drop;
 			global::Syncfusion.SfDataGrid.XForms.Droid.Resource.String.drop_above = global::FootballStats.Droid.Resource.String.drop_above;
 			global::Syncfusion.SfDataGrid.XForms.Droid.Resource.String.drop_below = global::FootballStats.Droid.Resource.String.drop_below;
+			global::Syncfusion.ListView.XForms.Android.Resource.String.ApplicationName = global::FootballStats.Droid.Resource.String.ApplicationName;
+			global::Syncfusion.ListView.XForms.Android.Resource.String.Hello = global::FootballStats.Droid.Resource.String.Hello;
+			global::Syncfusion.ListView.XForms.Android.Resource.String.Load_More = global::FootballStats.Droid.Resource.String.Load_More;
 			global::Com.Syncfusion.Numerictextbox.Resource.Attribute.allowNull = global::FootballStats.Droid.Resource.Attribute.allowNull;
 			global::Com.Syncfusion.Numerictextbox.Resource.Attribute.borderColor = global::FootballStats.Droid.Resource.Attribute.borderColor;
 			global::Com.Syncfusion.Numerictextbox.Resource.Attribute.culture = global::FootballStats.Droid.Resource.Attribute.culture;
@@ -5526,7 +5524,6 @@ namespace FootballStats.Droid
 			global::Com.Syncfusion.Numerictextbox.Resource.Styleable.SfNumericTextBox_valueChangeMode = global::FootballStats.Droid.Resource.Styleable.SfNumericTextBox_valueChangeMode;
 			global::Com.Syncfusion.Numerictextbox.Resource.Styleable.SfNumericTextBox_watermark = global::FootballStats.Droid.Resource.Styleable.SfNumericTextBox_watermark;
 			global::Com.Syncfusion.Numerictextbox.Resource.Styleable.SfNumericTextBox_watermarkColor = global::FootballStats.Droid.Resource.Styleable.SfNumericTextBox_watermarkColor;
->>>>>>> TeamAndPlayerStatFeature
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::FootballStats.Droid.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::FootballStats.Droid.Resource.Attribute.font;
 			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::FootballStats.Droid.Resource.Attribute.fontProviderAuthority;
@@ -14409,87 +14406,6 @@ namespace FootballStats.Droid
 			public const int design_snackbar_background = 2131165322;
 			
 			// aapt resource value: 0x7F07008B
-<<<<<<< HEAD
-			public const int ic_errorstatus = 2131165323;
-			
-			// aapt resource value: 0x7F07008C
-			public const int ic_mtrl_chip_checked_black = 2131165324;
-			
-			// aapt resource value: 0x7F07008D
-			public const int ic_mtrl_chip_checked_circle = 2131165325;
-			
-			// aapt resource value: 0x7F07008E
-			public const int ic_mtrl_chip_close_circle = 2131165326;
-			
-			// aapt resource value: 0x7F07008F
-			public const int ic_successstatus = 2131165327;
-			
-			// aapt resource value: 0x7F070091
-			public const int inputlayout_togglecollapseicon = 2131165329;
-			
-			// aapt resource value: 0x7F070092
-			public const int inputlayout_togglevisibleicon = 2131165330;
-			
-			// aapt resource value: 0x7F070090
-			public const int input_layout_drop_down_icon = 2131165328;
-			
-			// aapt resource value: 0x7F070093
-			public const int mtrl_snackbar_background = 2131165331;
-			
-			// aapt resource value: 0x7F070094
-			public const int mtrl_tabs_default_indicator = 2131165332;
-			
-			// aapt resource value: 0x7F070095
-			public const int navigation_empty_icon = 2131165333;
-			
-			// aapt resource value: 0x7F070096
-			public const int notification_action_background = 2131165334;
-			
-			// aapt resource value: 0x7F070097
-			public const int notification_bg = 2131165335;
-			
-			// aapt resource value: 0x7F070098
-			public const int notification_bg_low = 2131165336;
-			
-			// aapt resource value: 0x7F070099
-			public const int notification_bg_low_normal = 2131165337;
-			
-			// aapt resource value: 0x7F07009A
-			public const int notification_bg_low_pressed = 2131165338;
-			
-			// aapt resource value: 0x7F07009B
-			public const int notification_bg_normal = 2131165339;
-			
-			// aapt resource value: 0x7F07009C
-			public const int notification_bg_normal_pressed = 2131165340;
-			
-			// aapt resource value: 0x7F07009D
-			public const int notification_icon_background = 2131165341;
-			
-			// aapt resource value: 0x7F07009E
-			public const int notification_template_icon_bg = 2131165342;
-			
-			// aapt resource value: 0x7F07009F
-			public const int notification_template_icon_low_bg = 2131165343;
-			
-			// aapt resource value: 0x7F0700A0
-			public const int notification_tile_bg = 2131165344;
-			
-			// aapt resource value: 0x7F0700A1
-			public const int notify_panel_notification_icon_bg = 2131165345;
-			
-			// aapt resource value: 0x7F0700A2
-			public const int roundedbg = 2131165346;
-			
-			// aapt resource value: 0x7F0700A3
-			public const int roundedbgdark = 2131165347;
-			
-			// aapt resource value: 0x7F0700A4
-			public const int tooltip_frame_dark = 2131165348;
-			
-			// aapt resource value: 0x7F0700A5
-			public const int tooltip_frame_light = 2131165349;
-=======
 			public const int dropdownbuttonimage = 2131165323;
 			
 			// aapt resource value: 0x7F07008C
@@ -14575,7 +14491,6 @@ namespace FootballStats.Droid
 			
 			// aapt resource value: 0x7F0700A7
 			public const int UnknownPlayer = 2131165351;
->>>>>>> TeamAndPlayerStatFeature
 			
 			static Drawable()
 			{
@@ -15855,7 +15770,6 @@ namespace FootballStats.Droid
 			// aapt resource value: 0x7F0D001C
 			public const int abc_shareactionprovider_share_with_application = 2131558428;
 			
-<<<<<<< HEAD
 			// aapt resource value: 0x7F0D001D
 			public const int abc_toolbar_collapse_description = 2131558429;
 			
@@ -15872,125 +15786,82 @@ namespace FootballStats.Droid
 			public const int bottom_sheet_behavior = 2131558432;
 			
 			// aapt resource value: 0x7F0D0021
-			public const int character_counter_content_description = 2131558433;
+			public const int cancel_drop = 2131558433;
 			
 			// aapt resource value: 0x7F0D0022
-			public const int character_counter_pattern = 2131558434;
+			public const int character_counter_content_description = 2131558434;
 			
 			// aapt resource value: 0x7F0D0023
-			public const int copy_toast_msg = 2131558435;
-=======
-			// aapt resource value: 0x7F0D001E
-			public const int cancel_drop = 2131558430;
-			
-			// aapt resource value: 0x7F0D001F
-			public const int character_counter_content_description = 2131558431;
-			
-			// aapt resource value: 0x7F0D0020
-			public const int character_counter_pattern = 2131558432;
-			
-			// aapt resource value: 0x7F0D0021
-			public const int copy_toast_msg = 2131558433;
-			
-			// aapt resource value: 0x7F0D0022
-			public const int drop_above = 2131558434;
-			
-			// aapt resource value: 0x7F0D0023
-			public const int drop_below = 2131558435;
->>>>>>> TeamAndPlayerStatFeature
+			public const int character_counter_pattern = 2131558435;
 			
 			// aapt resource value: 0x7F0D0024
-			public const int fab_transformation_scrim_behavior = 2131558436;
+			public const int copy_toast_msg = 2131558436;
 			
 			// aapt resource value: 0x7F0D0025
-			public const int fab_transformation_sheet_behavior = 2131558437;
+			public const int drop_above = 2131558437;
 			
 			// aapt resource value: 0x7F0D0026
-			public const int fallback_menu_item_copy_link = 2131558438;
+			public const int drop_below = 2131558438;
 			
 			// aapt resource value: 0x7F0D0027
-			public const int fallback_menu_item_open_in_browser = 2131558439;
+			public const int fab_transformation_scrim_behavior = 2131558439;
 			
 			// aapt resource value: 0x7F0D0028
-			public const int fallback_menu_item_share_link = 2131558440;
-<<<<<<< HEAD
+			public const int fab_transformation_sheet_behavior = 2131558440;
+			
+			// aapt resource value: 0x7F0D0029
+			public const int fallback_menu_item_copy_link = 2131558441;
+			
+			// aapt resource value: 0x7F0D002A
+			public const int fallback_menu_item_open_in_browser = 2131558442;
+			
+			// aapt resource value: 0x7F0D002B
+			public const int fallback_menu_item_share_link = 2131558443;
+			
+			// aapt resource value: 0x7F0D002C
+			public const int hello = 2131558444;
 			
 			// aapt resource value: 0x7F0D0001
 			public const int Hello = 2131558401;
-=======
->>>>>>> TeamAndPlayerStatFeature
 			
-			// aapt resource value: 0x7F0D0029
-			public const int hello = 2131558441;
+			// aapt resource value: 0x7F0D002D
+			public const int hide_bottom_view_on_scroll_behavior = 2131558445;
 			
-			// aapt resource value: 0x7F0D002A
-			public const int hide_bottom_view_on_scroll_behavior = 2131558442;
-			
-			// aapt resource value: 0x7F0D002B
-			public const int library_name = 2131558443;
-<<<<<<< HEAD
+			// aapt resource value: 0x7F0D002E
+			public const int library_name = 2131558446;
 			
 			// aapt resource value: 0x7F0D0002
 			public const int Load_More = 2131558402;
 			
-			// aapt resource value: 0x7F0D002C
-			public const int mtrl_chip_close_icon_content_description = 2131558444;
-			
-			// aapt resource value: 0x7F0D002D
-			public const int overflow_tab_title = 2131558445;
-			
-			// aapt resource value: 0x7F0D002E
-			public const int password_toggle_content_description = 2131558446;
-			
 			// aapt resource value: 0x7F0D002F
-			public const int path_password_eye = 2131558447;
+			public const int load_more_items = 2131558447;
 			
 			// aapt resource value: 0x7F0D0030
-			public const int path_password_eye_mask_strike_through = 2131558448;
+			public const int mtrl_chip_close_icon_content_description = 2131558448;
 			
 			// aapt resource value: 0x7F0D0031
-			public const int path_password_eye_mask_visible = 2131558449;
+			public const int overflow_tab_title = 2131558449;
 			
 			// aapt resource value: 0x7F0D0032
-			public const int path_password_strike_through = 2131558450;
+			public const int password_toggle_content_description = 2131558450;
 			
 			// aapt resource value: 0x7F0D0033
-			public const int search_menu_title = 2131558451;
+			public const int path_password_eye = 2131558451;
 			
 			// aapt resource value: 0x7F0D0034
-			public const int status_bar_notification_info_overflow = 2131558452;
-=======
-			
-			// aapt resource value: 0x7F0D002C
-			public const int load_more_items = 2131558444;
-			
-			// aapt resource value: 0x7F0D002D
-			public const int mtrl_chip_close_icon_content_description = 2131558445;
-			
-			// aapt resource value: 0x7F0D002E
-			public const int overflow_tab_title = 2131558446;
-			
-			// aapt resource value: 0x7F0D002F
-			public const int password_toggle_content_description = 2131558447;
-			
-			// aapt resource value: 0x7F0D0030
-			public const int path_password_eye = 2131558448;
-			
-			// aapt resource value: 0x7F0D0031
-			public const int path_password_eye_mask_strike_through = 2131558449;
-			
-			// aapt resource value: 0x7F0D0032
-			public const int path_password_eye_mask_visible = 2131558450;
-			
-			// aapt resource value: 0x7F0D0033
-			public const int path_password_strike_through = 2131558451;
-			
-			// aapt resource value: 0x7F0D0034
-			public const int search_menu_title = 2131558452;
+			public const int path_password_eye_mask_strike_through = 2131558452;
 			
 			// aapt resource value: 0x7F0D0035
-			public const int status_bar_notification_info_overflow = 2131558453;
->>>>>>> TeamAndPlayerStatFeature
+			public const int path_password_eye_mask_visible = 2131558453;
+			
+			// aapt resource value: 0x7F0D0036
+			public const int path_password_strike_through = 2131558454;
+			
+			// aapt resource value: 0x7F0D0037
+			public const int search_menu_title = 2131558455;
+			
+			// aapt resource value: 0x7F0D0038
+			public const int status_bar_notification_info_overflow = 2131558456;
 			
 			static String()
 			{

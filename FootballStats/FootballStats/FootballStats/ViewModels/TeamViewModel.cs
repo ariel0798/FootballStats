@@ -1,12 +1,9 @@
-﻿using Acr.UserDialogs;
-using FootballStats.Models.Teams;
+﻿using FootballStats.Models.Teams;
 using FootballStats.Services.Interfaces;
 using Newtonsoft.Json;
 using Prism.Commands;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace FootballStats.ViewModels
 {
@@ -20,7 +17,7 @@ namespace FootballStats.ViewModels
 
         public List<Team> TeamList { get; set; }
 
-        public DelegateCommand PruebaCommand => new DelegateCommand(() => Prueba());
+       
         public DelegateCommand<Team> GoToTeamDetailCommand => new DelegateCommand<Team>((team) =>
             GoToTeamDetail(team));
 
@@ -35,12 +32,7 @@ namespace FootballStats.ViewModels
 
         async Task GetData()
         {
-<<<<<<< HEAD
-            var footballResponse = await ApiManager.GetTeamByLeagueId(2);
-=======
             var footballResponse = await ApiManager.GetTeamByTeamId(33);
->>>>>>> TeamAndPlayerStatFeature
-
             if (footballResponse.IsSuccessStatusCode)
             {
                 var jsonResponse = await footballResponse.Content.ReadAsStringAsync();
