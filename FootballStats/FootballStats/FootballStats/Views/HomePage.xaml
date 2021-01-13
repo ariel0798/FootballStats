@@ -6,11 +6,10 @@
             
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             xmlns:prism="http://prismlibrary.com"
+             NavigationPage.HasNavigationBar="False"
             prism:ViewModelLocator.AutowireViewModel="True"
-            android:TabbedPage.ToolbarPlacement="Bottom">
-
-    
-       
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BackgroundColor="#f2f2f2">
     
     <TabbedPage.Children>
         <views:FixturePage/>

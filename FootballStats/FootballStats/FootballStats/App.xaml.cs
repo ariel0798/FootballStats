@@ -33,10 +33,11 @@ namespace FootballStats
         {
             containerRegistry.RegisterForNavigation<NavigationPage>(NavigationConstants.NagivationPage);
             containerRegistry.RegisterForNavigation<TeamPage,TeamViewModel>(NavigationConstants.TeamPage);
-            containerRegistry.RegisterForNavigation<HomePage,HomePageViewModel>(NavigationConstants.HomePage);
+            containerRegistry.RegisterForNavigation<HomePage,HomeViewModel>(NavigationConstants.HomePage);
             containerRegistry.RegisterForNavigation<TeamStatsPage,TeamStatsViewModel>(NavigationConstants.TeamStatsPage);
             containerRegistry.RegisterForNavigation<PlayerPage,PlayerViewModel>(NavigationConstants.PlayerPage);
             containerRegistry.RegisterForNavigation<FixturePage, FixtureViewModel>(NavigationConstants.FixturePage);
+            containerRegistry.RegisterForNavigation<AboutPage, AboutViewModel>(NavigationConstants.AboutPage);
 
 
             containerRegistry.RegisterInstance<IApiManager>(new ApiManager(new ApiService<IFootballApi>(Config.FootballApiUrl)));

@@ -150,6 +150,17 @@ namespace FootballStats.Services
 
             return await task;
         }
+        public async Task<HttpResponseMessage> GetLeagues()
+        {
+            var cts = new CancellationTokenSource();
+            var task = RemoteRequestAsync<HttpResponseMessage>
+                (footballApi.GetApi(Priority.UserInitiated).GetLeagues());
+
+            runningTasks.Add(task.Id, cts);
+
+            return await task;
+        }
+        
 
         public async Task<HttpResponseMessage> GetPlayersStatsByTeamId(int teamId)
         {

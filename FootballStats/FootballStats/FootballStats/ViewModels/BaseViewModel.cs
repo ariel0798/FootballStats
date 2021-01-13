@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FootballStats.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public abstract class  BaseViewModel : INotifyPropertyChanged
     {
         protected IUserDialogs PageDialogs = UserDialogs.Instance;
         protected IApiManager ApiManager;

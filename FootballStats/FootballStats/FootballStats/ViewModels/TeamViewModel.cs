@@ -5,6 +5,8 @@ using Prism.Commands;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Prism.Navigation;
+using FootballStats.Models.Leagues;
+using System.Linq;
 
 namespace FootballStats.ViewModels
 {
@@ -14,15 +16,20 @@ namespace FootballStats.ViewModels
         public TeamViewModel( IApiManager apiManager, INavigationService navigationService)
             :base(apiManager)
         {
+            Title = "Teams";
+
             this.navigationService = navigationService;
 
             NavigateToTeamStatCommand = new DelegateCommand<Team>( async (team) => await NavigateToTeamStat(team));
 
             Task.Run(async () => await RunSafe(GetData()));
+            
         }
 
-        public List<Team> TeamList { get; set; }
+        public string Title { get; }
 
+        public List<Team> TeamList { get; set; }
+        public List<League> Leagues { get; set; }
        
         public DelegateCommand<Team> NavigateToTeamStatCommand { get; }
         private int leagueId = 2;

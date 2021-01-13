@@ -11,8 +11,10 @@ namespace FootballStats.ViewModels
         public FixtureViewModel(IApiManager apiManager) : base(apiManager)
         {
             //Task.Run(async () => await RunSafe(GetData()));
+            Title = "Live Games";
            GetMock();
         }
+        public string Title { get; }
 
         public List<Fixture> Fixtures { get; set; }
 

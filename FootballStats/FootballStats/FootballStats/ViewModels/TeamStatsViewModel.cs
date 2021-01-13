@@ -16,10 +16,13 @@ namespace FootballStats.ViewModels
         readonly INavigationService navigationService;
         public TeamStatsViewModel(IApiManager apiManager, INavigationService navigationService) : base(apiManager)
         {
+            Title = "Team Statistic";
             this.navigationService = navigationService;
             NavigateToPlayerCommand = new DelegateCommand<Player>(async (player) => await NavigateToPlayer(player));
+            NavigateGoBackCommand = new DelegateCommand(async () => await NavigateGoBack());
         }
         public DelegateCommand<Player> NavigateToPlayerCommand { get; }
+        public DelegateCommand NavigateGoBackCommand { get; }
         public void Initialize(INavigationParameters parameters)
         {
             var teamId = parameters["teamId"];
@@ -39,7 +42,9 @@ namespace FootballStats.ViewModels
         }
 
 
-        private int leagueId; 
+        private int leagueId;
+        public string Title { get; }
+
         public Statistic Statistic { get; set; }
         public Team Team { get; set; }
         public List<TeamStats> TeamStatsList { get; set; }
@@ -104,9 +109,15 @@ namespace FootballStats.ViewModels
         {
             var parameters = new NavigationParameters
             {
-                { "player", player }
+                { "player", player },
+                { "logo", Team.Logo }
             };
             await navigationService.NavigateAsync(NavigationConstants.PlayerPage, parameters);
+        }
+
+        async Task NavigateGoBack()
+        {
+            await navigationService.GoBackAsync();
         }
 
         private void SetTeamStats(Statistic statistic) 
@@ -184,6 +195,7 @@ namespace FootballStats.ViewModels
         {
             var photos = new List<string>()
             {
+                /*
                 "https://marriedbiography.com/wp-content/uploads/2018/05/Paulo-Dybala.jpg",
                 "https://img.uefa.com/imgml/TP/players/1/2021/324x324/250017925.jpg",
                 "https://img.uefa.com/imgml/TP/players/1/2021/324x324/95803.jpg",
@@ -202,6 +214,27 @@ namespace FootballStats.ViewModels
                 "https://img.uefa.com/imgml/TP/players/1/2016/324x324/250015808.jpg",
                 "https://img.uefa.com/imgml/TP/players/1/2016/324x324/250024456.jpg",
                 "https://img.uefa.com/imgml/TP/players/1/2016/324x324/99350.jpg"
+                */
+
+                "Player1.PNG",
+                "Player2.PNG",
+                "Player3.PNG",
+                "Player4.PNG",
+                "Player5.PNG",
+                "Player6.PNG",
+                "Player7.PNG",
+                "Player8.PNG",
+                "Player9.PNG",
+                "Player10.PNG",
+                "Player11.PNG",
+                "Player12.PNG",
+                "Player13.PNG",
+                "Player14.PNG",
+                "Player15.PNG",
+                "Player16.PNG",
+                "Player17.PNG",
+                "Player18.PNG"
+
             };
 
             return Shuffle(photos);

@@ -9,6 +9,7 @@ namespace FootballStats
         public const string TeamStatsPage = "TeamStatsPage";
         public const string PlayerPage = "PlayerPage";
         public const string FixturePage = "FixturePage";
+        public const string AboutPage = "AboutPage";
 
     }
 }
