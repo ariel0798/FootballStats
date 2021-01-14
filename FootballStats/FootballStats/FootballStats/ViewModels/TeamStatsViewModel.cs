@@ -1,4 +1,6 @@
-﻿using FootballStats.Models.Players;
+﻿using Acr.UserDialogs;
+using FootballStats.Constants;
+using FootballStats.Models.Players;
 using FootballStats.Models.Statistics;
 using FootballStats.Models.Teams;
 using FootballStats.Services.Interfaces;
@@ -13,48 +15,51 @@ namespace FootballStats.ViewModels
 {
     public class TeamStatsViewModel : BaseViewModel, IInitialize
     {
-        readonly INavigationService navigationService;
-        public TeamStatsViewModel(IApiManager apiManager, INavigationService navigationService) : base(apiManager)
+        public string Title { get; }
+        public Statistic Statistic { get; private set; }
+        public Team Team { get; private set; }
+        public List<TeamStats> TeamStatsList { get; private set; }
+        public List<Player> PlayersList { get; private set; }
+        public bool NotExistingStats { get; private set; }
+        public DelegateCommand<Player> NavigateToPlayerCommand { get; }
+        public DelegateCommand NavigateGoBackCommand { get; }
+
+        private int leagueId;
+
+        public TeamStatsViewModel(IApiManager apiManager,
+            IUserDialogs userDialogs, INavigationService navigationService)
+            : base(apiManager, userDialogs, navigationService)
         {
-            Title = "Team Statistic";
-            this.navigationService = navigationService;
+            Title = PageTitlesConstants.TeamStatistic;
             NavigateToPlayerCommand = new DelegateCommand<Player>(async (player) => await NavigateToPlayer(player));
             NavigateGoBackCommand = new DelegateCommand(async () => await NavigateGoBack());
         }
-        public DelegateCommand<Player> NavigateToPlayerCommand { get; }
-        public DelegateCommand NavigateGoBackCommand { get; }
+        
         public void Initialize(INavigationParameters parameters)
         {
-            var teamId = parameters["teamId"];
-            var name = parameters["name"];
-            var logo = parameters["logo"];
-
-            leagueId = Convert.ToInt32(parameters["leagueId"]);
-
-            Team = new Team()
-            {
-                TeamId = Convert.ToInt32(teamId),
-                Name = name.ToString(),
-                Logo = logo.ToString()
-            };
-
-            Task.Run(async () => await RunSafe(GetStatistic()));
+            Team = parameters[ParametersConstants.Team] as Team;
+            leagueId = Convert.ToInt32(parameters[ParametersConstants.LeagueId]);
+            Task.Run(async () => await RunSafe(GetStatisticData()));
         }
 
-
-        private int leagueId;
-        public string Title { get; }
-
-        public Statistic Statistic { get; set; }
-        public Team Team { get; set; }
-        public List<TeamStats> TeamStatsList { get; set; }
-        public List<Player> PlayersList { get; set; }
-        public bool NotExistingStats { get; set; }
-
-        async Task GetStatistic()
+        private async Task NavigateToPlayer(Player player)
         {
-            var footballStatsResponse = await ApiManager.GetTeamStatisticsByLeagueIdAndTeamId(leagueId, Team.TeamId);
-            
+            var parameters = new NavigationParameters
+            {
+                { ParametersConstants.Player, player },
+                { ParametersConstants.TeamLogo, Team.Logo }
+            };
+            await navigationService.NavigateAsync(NavigationConstants.PlayerPage, parameters);
+        }
+
+        private async Task NavigateGoBack()
+        {
+            await navigationService.GoBackAsync();
+        }
+
+        private async Task GetStatisticData()
+        {
+            var footballStatsResponse = await apiManager.GetTeamStatisticsByLeagueIdAndTeamId(leagueId, Team.TeamId);
 
             if (footballStatsResponse.IsSuccessStatusCode)
             {
@@ -73,18 +78,19 @@ namespace FootballStats.ViewModels
                         NotExistingStats = true;
                 }
                 else
-                    await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
+                    await pageDialogs.AlertAsync(DialogResponsesConstants.UnableToGetData,
+                            DialogResponsesConstants.Error, DialogResponsesConstants.Ok);
             }
             else
-                await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
-            await RunSafe(GetPlayers());
+                await pageDialogs.AlertAsync(DialogResponsesConstants.UnableToGetData,
+                            DialogResponsesConstants.Error, DialogResponsesConstants.Ok);
+
+            await RunSafe(GetPlayersData());
         }
 
-        async Task GetPlayers()
+        private async Task GetPlayersData()
         {
-            
-            var footballStatsResponse = await ApiManager.GetPlayersStatsByTeamId(Team.TeamId);
-
+            var footballStatsResponse = await apiManager.GetPlayersStatsByTeamId(Team.TeamId);
 
             if (footballStatsResponse.IsSuccessStatusCode)
             {
@@ -100,24 +106,12 @@ namespace FootballStats.ViewModels
 
                 }
                 else
-                    await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
+                    await pageDialogs.AlertAsync(DialogResponsesConstants.UnableToGetData,
+                            DialogResponsesConstants.Error, DialogResponsesConstants.Ok);
             }
             else
-                await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
-        }
-        async Task NavigateToPlayer(Player player)
-        {
-            var parameters = new NavigationParameters
-            {
-                { "player", player },
-                { "logo", Team.Logo }
-            };
-            await navigationService.NavigateAsync(NavigationConstants.PlayerPage, parameters);
-        }
-
-        async Task NavigateGoBack()
-        {
-            await navigationService.GoBackAsync();
+                await pageDialogs.AlertAsync(DialogResponsesConstants.UnableToGetData,
+                            DialogResponsesConstants.Error, DialogResponsesConstants.Ok);
         }
 
         private void SetTeamStats(Statistic statistic) 
@@ -164,7 +158,7 @@ namespace FootballStats.ViewModels
             TeamStatsList.Add(teamStats4);
         }
 
-        void SetMockPhotos(List<Player> players)
+        private void SetMockPhotos(List<Player> players)
         {
             List<string> photos = GetShufflePhotoList();
             int playersNumber = players.Count;
@@ -191,31 +185,10 @@ namespace FootballStats.ViewModels
             }
         }
 
-        List<string> GetShufflePhotoList()
+        private List<string> GetShufflePhotoList()
         {
             var photos = new List<string>()
             {
-                /*
-                "https://marriedbiography.com/wp-content/uploads/2018/05/Paulo-Dybala.jpg",
-                "https://img.uefa.com/imgml/TP/players/1/2021/324x324/250017925.jpg",
-                "https://img.uefa.com/imgml/TP/players/1/2021/324x324/95803.jpg",
-                "https://img.uefa.com/imgml/TP/players/1/2021/324x324/1900730.jpg",
-                "https://img.uefa.com/imgml/TP/players/1/2021/324x324/250054829.jpg",
-                "https://img.uefa.com/imgml/TP/players/1/2021/324x324/250039900.jpg",
-                "https://pm1.narvii.com/6120/6c222bfe98b6d8dca27fe28fada6465ae1529db6_00.jpg",
-                "https://www.bayernforum.com/threadlogos/11921.jpg",
-                "https://www.soccerpunter.com/images/gsm/players/150x150/53.png",
-                "https://gsports.live/football/wp-content/uploads/sites/2/2016/08/Robert-Lewandowski-300x300.jpg",
-                "https://2.bp.blogspot.com/-uYvypTv2zIk/VKMaUozSKdI/AAAAAAAANzw/mxzRuUbcsmw/s1600/Mesut%2B%C3%96zil.jpg",
-                "https://img.uefa.com/imgml/TP/players/1/2016/324x324/250015966.jpg",
-                "https://img.uefa.com/imgml/TP/players/1/2016/324x324/59142.jpg",
-                "https://img.uefa.com/imgml/TP/players/1/2016/324x324/74055.jpg",
-                "https://img.uefa.com/imgml/TP/players/1/2016/324x324/74327.jpg",
-                "https://img.uefa.com/imgml/TP/players/1/2016/324x324/250015808.jpg",
-                "https://img.uefa.com/imgml/TP/players/1/2016/324x324/250024456.jpg",
-                "https://img.uefa.com/imgml/TP/players/1/2016/324x324/99350.jpg"
-                */
-
                 "Player1.PNG",
                 "Player2.PNG",
                 "Player3.PNG",
@@ -234,13 +207,12 @@ namespace FootballStats.ViewModels
                 "Player16.PNG",
                 "Player17.PNG",
                 "Player18.PNG"
-
             };
 
             return Shuffle(photos);
         }
 
-        List<string> Shuffle(List<string> list)
+        private List<string> Shuffle(List<string> list)
         {
             int n = list.Count;
             Random rng = new Random();
@@ -253,9 +225,6 @@ namespace FootballStats.ViewModels
                 list[n] = value;
             }
             return list;
-        }
-
-       
+        }       
     }
-
 }

@@ -1,5 +1,7 @@
 ﻿using Acr.UserDialogs;
+using FootballStats.Constants;
 using FootballStats.Services.Interfaces;
+using Prism.Navigation;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -9,17 +11,20 @@ namespace FootballStats.ViewModels
 {
     public abstract class  BaseViewModel : INotifyPropertyChanged
     {
-        protected IUserDialogs PageDialogs = UserDialogs.Instance;
-        protected IApiManager ApiManager;
-        public event PropertyChangedEventHandler PropertyChanged;
-        
         public bool IsBusy { get; set; }
-        public  BaseViewModel(IApiManager apiManager)
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected IUserDialogs pageDialogs;
+        protected INavigationService navigationService;
+        protected IApiManager apiManager;
+        
+        protected BaseViewModel(IApiManager apiManager, IUserDialogs userDialogs, INavigationService navigationService)
         {
-            ApiManager = apiManager;
+            pageDialogs = userDialogs;
+            this.navigationService = navigationService;
+            this.apiManager = apiManager;
         }
 
-        public async Task RunSafe(Task task, bool ShowLoading = true, string loadingMessage = null)
+        protected async Task RunSafe(Task task, bool ShowLoading = true, string loadingMessage = null)
         {
             try
             {
@@ -29,7 +34,7 @@ namespace FootballStats.ViewModels
                 IsBusy = true;
 
                 if (ShowLoading)
-                    UserDialogs.Instance.ShowLoading(loadingMessage ?? "Loading");
+                    pageDialogs.ShowLoading(loadingMessage ?? DialogResponsesConstants.Loading);
 
                 await task;
             }
@@ -38,13 +43,13 @@ namespace FootballStats.ViewModels
                 IsBusy = false;
                 UserDialogs.Instance.HideLoading();
                 Debug.WriteLine(e.ToString());
-                await App.Current.MainPage.DisplayAlert("Error", "Check your internet connection", "Ok");
+                await pageDialogs.AlertAsync(DialogResponsesConstants.Error, DialogResponsesConstants.CheckInternetConnection , DialogResponsesConstants.Ok);
             }
             finally
             {
                 IsBusy = false;
                 if (ShowLoading)
-                    UserDialogs.Instance.HideLoading();
+                    pageDialogs.HideLoading();
             }
         }
     }

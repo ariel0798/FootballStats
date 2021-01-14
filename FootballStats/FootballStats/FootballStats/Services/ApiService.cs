@@ -1,16 +1,15 @@
-﻿using FootballStats.Services.Interfaces;
-using Fusillade;
-using ModernHttpClient;
-using Refit;
+﻿using Refit;
 using System;
+using Fusillade;
 using System.Net.Http;
+using ModernHttpClient;
+using FootballStats.Services.Interfaces;
 
 namespace FootballStats.Services
 {
     public class ApiService<T>: IApiService<T>
     {
         readonly Func<HttpMessageHandler, T> createClient;
-
         public ApiService(string apiBaseAddress)
         {
             createClient = messageHandler =>
@@ -23,6 +22,25 @@ namespace FootballStats.Services
                 return RestService.For<T>(client);
             };
         }
+
+        public T GetApi(Priority priority)
+        {
+            switch (priority)
+            {
+                case Priority.Background:
+                    return Background;
+
+                case Priority.UserInitiated:
+                    return UserInitiated;
+
+                case Priority.Speculative:
+                    return Speculative;
+
+                default:
+                    return UserInitiated;
+            }
+        }
+
         private T Background
         {
             get
@@ -47,26 +65,6 @@ namespace FootballStats.Services
                 return new Lazy<T>(() => createClient(
                     new RateLimitedHttpMessageHandler(new NativeMessageHandler(), Priority.Speculative))).Value;
             }
-        }
-
-        public T GetApi(Priority priority)
-        {
-            switch (priority)
-            {
-                case Priority.Background:
-                    return Background;
-
-                case Priority.UserInitiated:
-                    return UserInitiated;
-
-                case Priority.Speculative:
-                    return Speculative;
-
-                default:
-                    return UserInitiated;
-
-            }
-          
         }
     }
 }

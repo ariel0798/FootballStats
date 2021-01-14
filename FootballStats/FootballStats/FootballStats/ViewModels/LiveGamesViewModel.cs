@@ -1,42 +1,27 @@
-﻿using FootballStats.Models.Fixtures;
+﻿using Acr.UserDialogs;
+using FootballStats.Constants;
+using FootballStats.Models.Fixtures;
 using FootballStats.Services.Interfaces;
-using Newtonsoft.Json;
+using Prism.Navigation;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace FootballStats.ViewModels
 {
-    public class FixtureViewModel : BaseViewModel
+    public class LiveGamesViewModel : BaseViewModel
     {
-        public FixtureViewModel(IApiManager apiManager) : base(apiManager)
-        {
-            //Task.Run(async () => await RunSafe(GetData()));
-            Title = "Live Games";
-           GetMock();
-        }
         public string Title { get; }
-
         public List<Fixture> Fixtures { get; set; }
 
-        /*
-        async Task GetData()
+        public LiveGamesViewModel(IApiManager apiManager,
+            IUserDialogs userDialogs, INavigationService navigationService)
+            : base(apiManager, userDialogs, navigationService)
         {
-            var footballResponse = await ApiManager.GetFixturesLive();
-
-            if (footballResponse.IsSuccessStatusCode)
-            {
-                var jsonResponse = await footballResponse.Content.ReadAsStringAsync();
-                var fixtures = await Task.Run(() => JsonConvert.DeserializeObject<Fixtures>(jsonResponse));
-               
-                Fixtures = fixtures.Api.Fixtures;
-            }
-            else
-            {
-                await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
-            }
-        }*/
-       void GetMock()
-        {
+            Title = PageTitlesConstants.LiveGames;
+           GetMock();
+        }
+        
+       private void GetMock()
+       {
             Fixtures = new List<Fixture>();
             var fixture = new Fixture
             {
@@ -67,6 +52,5 @@ namespace FootballStats.ViewModels
             fixture2.Score.Fulltime = "3-0";
             Fixtures.Add(fixture2);
         }
-
     }
 }

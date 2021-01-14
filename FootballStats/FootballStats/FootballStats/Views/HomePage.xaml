@@ -12,7 +12,7 @@
             BackgroundColor="#f2f2f2">
     
     <TabbedPage.Children>
-        <views:FixturePage/>
+        <views:LiveGamesPage/>
         <views:TeamPage/>
         <views:AboutPage/> 
     </TabbedPage.Children>

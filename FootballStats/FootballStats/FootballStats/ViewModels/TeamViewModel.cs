@@ -1,55 +1,49 @@
 ﻿using FootballStats.Models.Teams;
-using FootballStats.Services.Interfaces;
 using Newtonsoft.Json;
 using Prism.Commands;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Prism.Navigation;
 using FootballStats.Models.Leagues;
-using System.Linq;
+using FootballStats.Constants;
+using Acr.UserDialogs;
+using FootballStats.Services.Interfaces;
 
 namespace FootballStats.ViewModels
 {
     public class TeamViewModel : BaseViewModel
     {
-        readonly INavigationService navigationService;
-        public TeamViewModel( IApiManager apiManager, INavigationService navigationService)
-            :base(apiManager)
+        public string Title { get; }
+        public List<Team> TeamList { get; set; }
+        public List<League> Leagues { get; set; }
+        public DelegateCommand<Team> NavigateToTeamStatCommand { get; }
+
+        readonly int leagueId;
+
+        public TeamViewModel(IApiManager apiManager,
+            IUserDialogs userDialogs, INavigationService navigationService)
+            : base(apiManager,userDialogs, navigationService)
         {
-            Title = "Teams";
-
-            this.navigationService = navigationService;
-
+            Title = PageTitlesConstants.Teams;
+            leagueId = 2;
             NavigateToTeamStatCommand = new DelegateCommand<Team>( async (team) => await NavigateToTeamStat(team));
-
-            Task.Run(async () => await RunSafe(GetData()));
+            Task.Run(async () => await RunSafe(GetTeamData()));
             
         }
 
-        public string Title { get; }
-
-        public List<Team> TeamList { get; set; }
-        public List<League> Leagues { get; set; }
-       
-        public DelegateCommand<Team> NavigateToTeamStatCommand { get; }
-        private int leagueId = 2;
-
-        async Task NavigateToTeamStat(Team team)
+        private async Task NavigateToTeamStat(Team team)
         {
             var parameters = new NavigationParameters
             {
-                { "teamId", team.TeamId },
-                { "name", team.Name },
-                { "logo", team.Logo },
-                { "leagueId", leagueId }
+                { ParametersConstants.Team, team },
+                { ParametersConstants.LeagueId, leagueId }
             };
             await navigationService.NavigateAsync(NavigationConstants.TeamStatsPage,parameters);
         }
 
-
-        async Task GetData()
+        private async Task GetTeamData()
         {
-            var footballResponse = await ApiManager.GetTeamByLeagueId(leagueId);
+            var footballResponse = await apiManager.GetTeamByLeagueId(leagueId);
             if (footballResponse.IsSuccessStatusCode)
             {
                 var jsonResponse = await footballResponse.Content.ReadAsStringAsync();
@@ -58,7 +52,8 @@ namespace FootballStats.ViewModels
             }
             else
             {
-                await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
+                await pageDialogs.AlertAsync(DialogResponsesConstants.UnableToGetData,
+                            DialogResponsesConstants.Error, DialogResponsesConstants.Ok);
             }
         }
     }

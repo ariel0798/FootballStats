@@ -1,10 +1,11 @@
-﻿using FootballStats.Models.Players;
+﻿using Acr.UserDialogs;
+using FootballStats.Constants;
+using FootballStats.Models.Players;
 using FootballStats.Models.Trophies;
 using FootballStats.Services.Interfaces;
 using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Navigation;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,36 +13,39 @@ namespace FootballStats.ViewModels
 {
     public class PlayerViewModel : BaseViewModel, IInitialize
     {
-        readonly INavigationService navigationService;
-        public PlayerViewModel(IApiManager apiManager, INavigationService navigationService) : base(apiManager)
-        {
-            Title = "Player";
-            NavigateGoBackCommand = new DelegateCommand(async () => await NavigateGoBack());
-            this.navigationService = navigationService;
-        }
-
-
-        public void Initialize(INavigationParameters parameters)
-        {
-            Player = parameters["player"] as Player;
-            TeamLogo = parameters["logo"] as string;
-            Task.Run(async () => await RunSafe(GetTrophyData()));
-        }
-
         public string Title { get; }
         public string TeamLogo { get; set; }
         public DelegateCommand NavigateGoBackCommand { get; }
         public Player Player { get; set; }
         public List<Trophy> TrophiesList { get; set; }
 
-        async Task GetTrophyData()
+        public PlayerViewModel(IApiManager apiManager,
+            IUserDialogs userDialogs, INavigationService navigationService)
+            : base(apiManager, userDialogs, navigationService)
         {
-            
-            var footballResponse = await ApiManager.GetTrophiesByPlayerId(Player.PlayerId);
+            Title = PageTitlesConstants.Player;
+            NavigateGoBackCommand = new DelegateCommand(async () => await NavigateGoBack());
+        }
 
-            if (footballResponse.IsSuccessStatusCode)
+        public void Initialize(INavigationParameters parameters)
+        {
+            Player = parameters[ParametersConstants.Player] as Player;
+            TeamLogo = parameters[ParametersConstants.TeamLogo] as string;
+            Task.Run(async () => await RunSafe(GetTrophyData()));
+        }
+
+        private async Task NavigateGoBack()
+        {
+            await navigationService.GoBackAsync();
+        }
+
+        private async Task GetTrophyData()
+        {
+            var trophyFootballResponse = await apiManager.GetTrophiesByPlayerId(Player.PlayerId);
+
+            if (trophyFootballResponse.IsSuccessStatusCode)
             {
-                var jsonResponse = await footballResponse.Content.ReadAsStringAsync();
+                var jsonResponse = await trophyFootballResponse.Content.ReadAsStringAsync();
                 var trophies = await Task.Run(() => JsonConvert.DeserializeObject<Trophies>(jsonResponse));
                 
                 if(trophies != null)
@@ -51,19 +55,17 @@ namespace FootballStats.ViewModels
                         TrophiesList = trophies.Api.Trophies;
                     }
                     else
-                        await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
+                        await pageDialogs.AlertAsync(DialogResponsesConstants.UnableToGetData, 
+                            DialogResponsesConstants.Error, DialogResponsesConstants.Ok);
                 }
                 else
-                    await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
+                    await pageDialogs.AlertAsync(DialogResponsesConstants.UnableToGetData,
+                            DialogResponsesConstants.Error, DialogResponsesConstants.Ok);
 
             }
             else
-                await PageDialogs.AlertAsync("Unable to get data", "Error", "Ok");
-        }
-
-        async Task NavigateGoBack()
-        {
-            await navigationService.GoBackAsync();
+                await pageDialogs.AlertAsync(DialogResponsesConstants.UnableToGetData,
+                            DialogResponsesConstants.Error, DialogResponsesConstants.Ok);
         }
     }
 }

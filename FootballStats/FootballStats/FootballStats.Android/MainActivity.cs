@@ -1,15 +1,12 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 using Prism;
 using Prism.Ioc;
 using Acr.UserDialogs;
-using Xamarin.Forms;
+using Plugin.Connectivity.Abstractions;
+using Plugin.Connectivity;
 
 namespace FootballStats.Droid
 {
@@ -41,7 +38,8 @@ namespace FootballStats.Droid
         {
             public void RegisterTypes(IContainerRegistry containerRegistry)
             {
-             
+                containerRegistry.RegisterInstance<IConnectivity>(CrossConnectivity.Current);
+                containerRegistry.RegisterInstance<IUserDialogs>(UserDialogs.Instance);
             }
         }
     }

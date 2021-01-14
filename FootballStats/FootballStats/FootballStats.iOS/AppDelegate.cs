@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿using Acr.UserDialogs;
 using Foundation;
+using Plugin.Connectivity;
+using Plugin.Connectivity.Abstractions;
 using Prism;
 using Prism.Ioc;
 using UIKit;
@@ -33,7 +32,8 @@ namespace FootballStats.iOS
         {
             public void RegisterTypes(IContainerRegistry containerRegistry)
             {
-                
+                containerRegistry.RegisterInstance<IConnectivity>(CrossConnectivity.Current);
+                containerRegistry.RegisterInstance<IUserDialogs>(UserDialogs.Instance);
             }
         }
 
