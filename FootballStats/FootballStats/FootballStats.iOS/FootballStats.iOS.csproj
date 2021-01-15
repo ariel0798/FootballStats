@@ -234,4 +234,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\Player17.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AboutUsAnimation.gif" />
+  </ItemGroup>
 </Project>
