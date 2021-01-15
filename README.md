@@ -16,9 +16,10 @@ HOME PAGE        |  TEAM PAGE | TEAM STATS PAGE
 :-------------------------:|:-------------------------:|:-------------------------:
 ![1  HOME](https://user-images.githubusercontent.com/45038839/104674576-4404c080-56ba-11eb-9117-ded7c8d630bf.jpeg)  | ![2  TEAM PAGE](https://user-images.githubusercontent.com/45038839/104674585-4830de00-56ba-11eb-87b1-7b6d8fcca5a3.jpeg) | ![3  TEAM STATS PAGE](https://user-images.githubusercontent.com/45038839/104674586-4830de00-56ba-11eb-8acf-e7b62f33dd79.jpeg) 
 
-PLAYER PAGE | PLAYER'S NOT FOUND ERROR | ANOTHERONE
+PLAYER PAGE | PLAYER'S NOT FOUND ERROR | ABOUT US
 :-------------------------:|:-------------------------:|:-------------------------:
-![4  PLAYER PAGE](https://user-images.githubusercontent.com/45038839/104674584-47984780-56ba-11eb-91b4-ba422241560b.jpeg) | ![5 PLAYER'S NOT FOUND](https://user-images.githubusercontent.com/45038839/104675113-37cd3300-56bb-11eb-87de-eb180591bdc2.gif) |  ![5 PLAYER'S NOT FOUND](https://user-images.githubusercontent.com/45038839/104675113-37cd3300-56bb-11eb-87de-eb180591bdc2.gif)
+![4  PLAYER PAGE](https://user-images.githubusercontent.com/45038839/104674584-47984780-56ba-11eb-91b4-ba422241560b.jpeg) | ![5 PLAYER'S NOT FOUND](https://user-images.githubusercontent.com/45038839/104675113-37cd3300-56bb-11eb-87de-eb180591bdc2.gif) |  ![ABOUT US](https://user-images.githubusercontent.com/45038839/104752234-cded7180-572c-11eb-83cd-af567065c3ec.gif)
+
 
 
 **5. TEAM MEMBERS**   
