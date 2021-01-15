@@ -6,18 +6,31 @@ using System.Text;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using FootballStats.CustomElements;
+using FootballStats.iOS.CustomRenderers;
 
-[assembly: ExportRenderer(typeof(Label),typeof(LabelRenderer))]
+[assembly: ExportRenderer(typeof(CustomView),typeof(TextRenderer))]
 namespace FootballStats.iOS.CustomRenderers
 {
-   public class TextRenderer : Xamarin.Forms.Platform.iOS.LabelRenderer
+   public class TextRenderer : ViewRenderer<CustomView,UILabel>
     {
-        protected override void OnElementChanged(ElementChangedEventArgs<Label> e)
+        public TextRenderer()
         {
-            if (Control != null)
+
+        }
+
+        protected override void OnElementChanged(ElementChangedEventArgs<CustomView> e)
+        {
+            base.OnElementChanged(e);
+            if (Control == null)
             {
-                Control.BackgroundColor = UIColor.FromRGB(66, 66, 66);
-             
+                UILabel label = new UILabel
+                {
+                    Text = "Football Stats was created to show statistics of football teams and football players.In that way anybody can know what thophies have their favorite player and how they are going this year.Besides that, it provides live games scores so you can know how are the games going.",
+                    Font = UIFont.SystemFontOfSize(24)
+                };
+
+                SetNativeControl(label);
             }
         }
     }

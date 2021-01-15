@@ -4,12 +4,18 @@
              x:Class="FootballStats.Views.AboutPage"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:custon = "clr-namespace:FootballStats.CustomElements;assembly=FootballStats"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              Background="#03A9F4"
              ios:Page.UseSafeArea="true"
              Visual="Material"
              Title="About" IconImageSource="More" >
+
+
+    <custon:CustomView VerticalOptions="Center" HorizontalOptions="Center"/>
+
+
 
     <ContentPage.Content>
         <Grid>
@@ -26,9 +32,7 @@
                     <StackLayout>
                         
                     
-                        <Label Text="Football Stats was created to show statistics of football teams and football players. In that way anybody can know what thophies have their favorite player and how they are going this year."  FontSize="18" TextColor="Black"/>
-                        <Image Source="AboutUsAnimation.gif" IsAnimationPlaying="True"/>
-                        <Label Text="Besides that, it provides live games scores so you can know how are the games going." FontSize="18" TextColor="Black"/>
+                        
                     </StackLayout>
                 </Frame>
             </pancake:PancakeView>
