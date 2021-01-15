@@ -17,15 +17,16 @@ namespace FootballStats.ViewModels
         public List<Team> TeamList { get; set; }
         public List<League> Leagues { get; set; }
         public DelegateCommand<Team> NavigateToTeamStatCommand { get; }
-
+        readonly ITeamsApiManager teamsApiManager;
         readonly int leagueId;
 
-        public TeamViewModel(IApiManager apiManager,
+        public TeamViewModel(ITeamsApiManager teamsApiManager,
             IUserDialogs userDialogs, INavigationService navigationService)
-            : base(apiManager,userDialogs, navigationService)
+            : base(userDialogs, navigationService)
         {
             Title = PageTitlesConstants.Teams;
             leagueId = 2;
+            this.teamsApiManager = teamsApiManager;
             NavigateToTeamStatCommand = new DelegateCommand<Team>( async (team) => await NavigateToTeamStat(team));
             Task.Run(async () => await RunSafe(GetTeamData()));
             
@@ -43,7 +44,7 @@ namespace FootballStats.ViewModels
 
         private async Task GetTeamData()
         {
-            var footballResponse = await apiManager.GetTeamByLeagueId(leagueId);
+            var footballResponse = await teamsApiManager.GetTeamByLeagueId(leagueId);
             if (footballResponse.IsSuccessStatusCode)
             {
                 var jsonResponse = await footballResponse.Content.ReadAsStringAsync();

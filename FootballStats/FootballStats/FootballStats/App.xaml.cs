@@ -12,6 +12,8 @@ namespace FootballStats
 {
     public partial class App : PrismApplication
     {
+        private readonly string footballApiUrl = Config.FootballApiUrl;
+
         public App(IPlatformInitializer platformInitializer): 
             base(platformInitializer)
         {
@@ -40,12 +42,17 @@ namespace FootballStats
             containerRegistry.RegisterForNavigation<LiveGamesPage, LiveGamesViewModel>(NavigationConstants.LiveGamesPage);
             containerRegistry.RegisterForNavigation<AboutPage, AboutViewModel>(NavigationConstants.AboutPage);
 
-            containerRegistry.Register<IApiManager, ApiManager>();
-            containerRegistry.RegisterInstance<IApiService<ILiveGamesFootballApi>>(new ApiService<ILiveGamesFootballApi>(Config.FootballApiUrl));
-            containerRegistry.RegisterInstance<IApiService<IPlayersFootballApi>>(new ApiService<IPlayersFootballApi>(Config.FootballApiUrl));
-            containerRegistry.RegisterInstance<IApiService<IStatisticsFootballApi>>(new ApiService<IStatisticsFootballApi>(Config.FootballApiUrl));
-            containerRegistry.RegisterInstance<IApiService<ITeamsFootballApi>>(new ApiService<ITeamsFootballApi>(Config.FootballApiUrl));
-            containerRegistry.RegisterInstance<IApiService<ITrophiesFootballApi>>(new ApiService<ITrophiesFootballApi>(Config.FootballApiUrl));
+            containerRegistry.Register<ILiveGamesApiManager, LiveGamesApiManager>();
+            containerRegistry.Register<IPlayersApiManager, PlayersApiManager>();
+            containerRegistry.Register<IStatisticsApiManager, StatisticsApiManager>();
+            containerRegistry.Register<ITeamsApiManager, TeamsApiManager>();
+            containerRegistry.Register<ITrophiesApiManager, TrophiesApiManager>();
+
+            containerRegistry.RegisterInstance<IApiService<ILiveGamesFootballApi>>(new ApiService<ILiveGamesFootballApi>(footballApiUrl));
+            containerRegistry.RegisterInstance<IApiService<IPlayersFootballApi>>(new ApiService<IPlayersFootballApi>(footballApiUrl));
+            containerRegistry.RegisterInstance<IApiService<IStatisticsFootballApi>>(new ApiService<IStatisticsFootballApi>(footballApiUrl));
+            containerRegistry.RegisterInstance<IApiService<ITeamsFootballApi>>(new ApiService<ITeamsFootballApi>(footballApiUrl));
+            containerRegistry.RegisterInstance<IApiService<ITrophiesFootballApi>>(new ApiService<ITrophiesFootballApi>(footballApiUrl));
         }
 
         protected override async void OnInitialized()

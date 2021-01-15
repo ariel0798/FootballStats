@@ -15,13 +15,11 @@ namespace FootballStats.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         protected IUserDialogs pageDialogs;
         protected INavigationService navigationService;
-        protected IApiManager apiManager;
         
-        protected BaseViewModel(IApiManager apiManager, IUserDialogs userDialogs, INavigationService navigationService)
+        protected BaseViewModel(IUserDialogs userDialogs, INavigationService navigationService)
         {
             pageDialogs = userDialogs;
             this.navigationService = navigationService;
-            this.apiManager = apiManager;
         }
 
         protected async Task RunSafe(Task task, bool ShowLoading = true, string loadingMessage = null)

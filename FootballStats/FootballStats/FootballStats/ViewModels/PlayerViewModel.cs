@@ -18,12 +18,13 @@ namespace FootballStats.ViewModels
         public DelegateCommand NavigateGoBackCommand { get; }
         public Player Player { get; set; }
         public List<Trophy> TrophiesList { get; set; }
-
-        public PlayerViewModel(IApiManager apiManager,
+        readonly ITrophiesApiManager trophiesApiManager;
+        public PlayerViewModel(ITrophiesApiManager trophiesApiManager,
             IUserDialogs userDialogs, INavigationService navigationService)
-            : base(apiManager, userDialogs, navigationService)
+            : base(userDialogs, navigationService)
         {
             Title = PageTitlesConstants.Player;
+            this.trophiesApiManager = trophiesApiManager;
             NavigateGoBackCommand = new DelegateCommand(async () => await NavigateGoBack());
         }
 
@@ -41,7 +42,7 @@ namespace FootballStats.ViewModels
 
         private async Task GetTrophyData()
         {
-            var trophyFootballResponse = await apiManager.GetTrophiesByPlayerId(Player.PlayerId);
+            var trophyFootballResponse = await trophiesApiManager.GetTrophiesByPlayerId(Player.PlayerId);
 
             if (trophyFootballResponse.IsSuccessStatusCode)
             {

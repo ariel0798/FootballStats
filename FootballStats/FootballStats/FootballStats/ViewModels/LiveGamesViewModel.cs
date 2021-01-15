@@ -1,7 +1,6 @@
 ﻿using Acr.UserDialogs;
 using FootballStats.Constants;
 using FootballStats.Models.Fixtures;
-using FootballStats.Services.Interfaces;
 using Prism.Navigation;
 using System.Collections.Generic;
 
@@ -12,9 +11,8 @@ namespace FootballStats.ViewModels
         public string Title { get; }
         public List<Fixture> Fixtures { get; set; }
 
-        public LiveGamesViewModel(IApiManager apiManager,
-            IUserDialogs userDialogs, INavigationService navigationService)
-            : base(apiManager, userDialogs, navigationService)
+        public LiveGamesViewModel(IUserDialogs userDialogs, INavigationService navigationService)
+            : base( userDialogs, navigationService)
         {
             Title = PageTitlesConstants.LiveGames;
            GetMock();

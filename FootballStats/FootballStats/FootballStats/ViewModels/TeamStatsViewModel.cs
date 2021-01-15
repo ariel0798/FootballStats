@@ -23,14 +23,18 @@ namespace FootballStats.ViewModels
         public bool NotExistingStats { get; private set; }
         public DelegateCommand<Player> NavigateToPlayerCommand { get; }
         public DelegateCommand NavigateGoBackCommand { get; }
-
+        readonly IStatisticsApiManager statisticsApiManager;
+        readonly IPlayersApiManager playersApiManager;
         private int leagueId;
 
-        public TeamStatsViewModel(IApiManager apiManager,
+        public TeamStatsViewModel(IPlayersApiManager playersApiManager,
+            IStatisticsApiManager statisticsApiManager,
             IUserDialogs userDialogs, INavigationService navigationService)
-            : base(apiManager, userDialogs, navigationService)
+            : base(userDialogs, navigationService)
         {
             Title = PageTitlesConstants.TeamStatistic;
+            this.statisticsApiManager = statisticsApiManager;
+            this.playersApiManager = playersApiManager;
             NavigateToPlayerCommand = new DelegateCommand<Player>(async (player) => await NavigateToPlayer(player));
             NavigateGoBackCommand = new DelegateCommand(async () => await NavigateGoBack());
         }
@@ -59,7 +63,7 @@ namespace FootballStats.ViewModels
 
         private async Task GetStatisticData()
         {
-            var footballStatsResponse = await apiManager.GetTeamStatisticsByLeagueIdAndTeamId(leagueId, Team.TeamId);
+            var footballStatsResponse = await statisticsApiManager.GetTeamStatisticsByLeagueIdAndTeamId(leagueId, Team.TeamId);
 
             if (footballStatsResponse.IsSuccessStatusCode)
             {
@@ -90,7 +94,7 @@ namespace FootballStats.ViewModels
 
         private async Task GetPlayersData()
         {
-            var footballStatsResponse = await apiManager.GetPlayersStatsByTeamId(Team.TeamId);
+            var footballStatsResponse = await playersApiManager.GetPlayersStatsByTeamId(Team.TeamId);
 
             if (footballStatsResponse.IsSuccessStatusCode)
             {
