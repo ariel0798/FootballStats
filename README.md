@@ -26,3 +26,39 @@ PLAYER PAGE | PLAYER'S NOT FOUND ERROR | ABOUT US
 	Richard Cruz	1071353  
 	Cesar Santana	1073758  
 	Jorge Piantini	1069380  
+	
+## Tools used ##
+
+- **PropertyChanged.Fody** - Handles property changed events.  
+https://github.com/Fody/PropertyChanged
+
+- **Xamarin.Essentials** - Essential cross platform APIs for your mobile apps.  
+https://github.com/xamarin/Essentials
+
+- **Acr.UserDialogs** - A cross platform library that allows you to call for standard user dialogs.  
+https://github.com/aritchie/userdialogs
+
+- **Fusillade** - An Http Message Handler to write more efficient code.  
+https://github.com/reactiveui/Fusillade
+
+- **Polly** - Library to handle retry, timeout, circuit breaker, fallback, etc.  
+https://github.com/App-vNext/Polly
+
+- **ModerHttpClient** - Used to implement platform-specific networking libraries.  
+https://github.com/alexrainman/ModernHttpClient
+
+- **Plugin.Connectivity** - Simple cross platform plugin to check connection status of mobile device, gather connection type, bandwidths, and more.  
+https://github.com/jamesmontemagno/ConnectivityPlugin
+
+- **Refit** - API handler helper.  
+https://github.com/reactiveui/refit
+
+- **Syncfusion.todolo** - Grid customization and adaptation.  
+https://ej2.syncfusion.com/documentation/grid/
+
+- **Prism** -  Framework for building loosely coupled, maintainable, and testable XAML applications  
+https://github.com/PrismLibrary/Prism
+
+
+
+
