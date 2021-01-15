@@ -189,7 +189,7 @@
                                                         <Label
                                                             FontAttributes="Bold"
                                                             FontSize="20"
-                                                            Text="2"
+                                                            Text="{Binding Player.Goals.Total}"
                                                             TextColor="White" />
                                                     </StackLayout>
                                                 </Frame>
@@ -204,7 +204,7 @@
                                                         <Label
                                                             FontAttributes="Bold"
                                                             FontSize="20"
-                                                            Text="2"
+                                                            Text="{Binding Player.Shots.Total}"
                                                             TextColor="White" />
                                                     </StackLayout>
                                                 </Frame>
@@ -219,7 +219,7 @@
                                                         <Label
                                                             FontAttributes="Bold"
                                                             FontSize="20"
-                                                            Text="2"
+                                                            Text="{Binding Player.Cards.Red}"
                                                             TextColor="White" />
                                                     </StackLayout>
                                                 </Frame>
@@ -234,7 +234,7 @@
                                                         <Label
                                                             FontAttributes="Bold"
                                                             FontSize="20"
-                                                            Text="2"
+                                                            Text="{Binding Player.Cards.Yellow}"
                                                             TextColor="White" />
                                                     </StackLayout>
                                                 </Frame>
