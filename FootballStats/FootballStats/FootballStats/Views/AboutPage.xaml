@@ -11,13 +11,9 @@
              ios:Page.UseSafeArea="true"
              Visual="Material"
              Title="About" IconImageSource="More" >
-
-
-    <custon:CustomView VerticalOptions="Center" HorizontalOptions="Center"/>
-
-
-
+    
     <ContentPage.Content>
+        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="75" />
@@ -28,14 +24,21 @@
 
             <pancake:PancakeView BackgroundColor="White" Padding="10" HorizontalOptions="FillAndExpand"
                                   Grid.Row="1" CornerRadius="60,60,0,0" >
+                <ScrollView>
+                    
+                
                 <Frame HasShadow="False" Margin="0,20,0,0" HorizontalOptions="FillAndExpand">
                     <StackLayout>
-                        
-                    
-                        
+
+                        <custon:CustomView Text="Football Stats was created to show statistics of football teams and football players. In that way anybody can know what thophies have their favorite player and how they are going this year."/>
+                        <Image Source="AboutUsAnimation.gif" IsAnimationPlaying="True"/>
+                        <custon:CustomView  Text="Besides that, it provides live games scores so you can know how are the games going."/>
+
                     </StackLayout>
                 </Frame>
+                </ScrollView>
             </pancake:PancakeView>
         </Grid>
+        
     </ContentPage.Content>
 </ContentPage>

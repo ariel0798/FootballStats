@@ -1,9 +1,4 @@
-﻿using Foundation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UIKit;
+﻿using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 using FootballStats.CustomElements;
@@ -24,10 +19,14 @@ namespace FootballStats.iOS.CustomRenderers
             base.OnElementChanged(e);
             if (Control == null)
             {
+                var view = (CustomView)Element;
+                if (view == null) return;
+
                 UILabel label = new UILabel
                 {
-                    Text = "Football Stats was created to show statistics of football teams and football players.In that way anybody can know what thophies have their favorite player and how they are going this year.Besides that, it provides live games scores so you can know how are the games going.",
-                    Font = UIFont.SystemFontOfSize(24)
+                    Text = view.Text,
+                    TextColor = UIKit.UIColor.Black,
+                    Font = UIFont.SystemFontOfSize(18)
                 };
 
                 SetNativeControl(label);

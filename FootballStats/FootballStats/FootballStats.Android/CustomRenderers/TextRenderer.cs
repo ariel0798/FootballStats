@@ -1,13 +1,5 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
+﻿using Android.Content;
 using Android.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Xamarin.Forms.Platform.Android;
 using FootballStats.CustomElements;
 using FootballStats.Droid.CustomRenderers;
@@ -28,12 +20,16 @@ namespace FootballStats.Droid.CustomRenderers
             base.OnElementChanged(e);
             if(Control == null)
             {
+                var view = (CustomView)Element;
+                if (view == null) return;
+
                 SetNativeControl(new TextView(Context)
                 {
-                    Text = "Football Stats was created to show statistics of football teams and football players.In that way anybody can know what thophies have their favorite player and how they are going this year.Besides that,it provides live games scores so you can know how are the games going."
+                    Text = view.Text
                 }) ;
 
-                Control.SetTextSize(Android.Util.ComplexUnitType.Sp, 24);
+                Control.SetTextColor(Android.Graphics.Color.Black);
+                Control.SetTextSize(Android.Util.ComplexUnitType.Sp, 18);
                 
             }
         }
