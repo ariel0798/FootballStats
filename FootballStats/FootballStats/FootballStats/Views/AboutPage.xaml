@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FootballStats.Views.AboutPage"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:custon = "clr-namespace:FootballStats.CustomElements;assembly=FootballStats"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Background="#03A9F4"
+             ios:Page.UseSafeArea="true"
+             Visual="Material"
+             Title="About" IconImageSource="More" >
+    
+    <ContentPage.Content>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Text="{Binding Title}" HorizontalTextAlignment="Center" FontSize="40" FontAttributes="Bold"   TextColor="#FFFFFF" Grid.Row="0" VerticalTextAlignment="Center"/>
+
+            <pancake:PancakeView BackgroundColor="White" Padding="10" HorizontalOptions="FillAndExpand"
+                                  Grid.Row="1" CornerRadius="60,60,0,0" >
+                <ScrollView>
+                    
+                
+                <Frame HasShadow="False" Margin="0,20,0,0" HorizontalOptions="FillAndExpand">
+                    <StackLayout>
+
+                        <custon:CustomView Text="Football Stats was created to show statistics of football teams and football players. In that way anybody can know what thophies have their favorite player and how they are going this year."/>
+                        <Image Source="AboutUsAnimation.gif" IsAnimationPlaying="True"/>
+                        <custon:CustomView  Text="Besides that, it provides live games scores so you can know how are the games going."/>
+
+                    </StackLayout>
+                </Frame>
+                </ScrollView>
+            </pancake:PancakeView>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

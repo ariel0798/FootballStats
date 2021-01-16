@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             x:Class="FootballStats.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            
+            
+            <Style x:Key="TitlePage" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="28"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="FramePlayerLetter" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+            
+            <Style x:Key="SecondTitlePage" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="AverageImage" TargetType="Image">
+                <Setter Property="WidthRequest" Value="60"/>
+                <Setter Property="HeightRequest" Value="60"/>
+            </Style>
+
+            <Style x:Key="TeamStatsImages" TargetType="Image">
+                <Setter Property="WidthRequest" Value="100"/>
+                <Setter Property="HeightRequest" Value="100"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+
+            <Style x:Key="Sepatator" TargetType="BoxView">
+                <Setter Property="WidthRequest" Value="1"/>
+                <Setter Property="BackgroundColor" Value="#2b4b70"/>
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="YuseiMagic">
+                <On Platform="Android" Value="/Fonts/YuseiMagic-Regular.ttf#Yusei Magic"/>
+                <On Platform="iOS" Value="YuseiMagic-Regular.ttf" />
+            </OnPlatform>
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>
